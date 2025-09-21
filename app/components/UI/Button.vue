@@ -2,7 +2,7 @@
   <button
     :type="type"
     :class="[
-      'inline-flex select-none items-center justify-center gap-2.5 rounded-md font-inter font-medium leading-normal transition-colors',
+      'w-fit inline-flex select-none items-center justify-center gap-2.5 rounded-md font-inter font-medium leading-normal transition-colors',
       textSize,
       variant === 'primary'
         ? ' bg-mainBlue text-white hover:bg-mainBlue/90 active:bg-mainBlue/80'
