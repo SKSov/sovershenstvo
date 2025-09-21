@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: theme('colors.white');
+  color: theme('colors.black');
+  overflow-x: hidden;
+}
+
+/* Global font family */
+html,
+body,
+#__nuxt {
+  font-family: theme('fontFamily.inter');
+}
