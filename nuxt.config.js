@@ -9,15 +9,9 @@ export default defineNuxtConfig({
   htmlAttrs: {
     lang: 'ru',
   },
+  css: ['../assets/css/index.css'],
 
-  modules: [
-    '@nuxt/content',
-    '@nuxt/eslint',
-    '@nuxt/icon',
-    '@nuxt/image',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/fonts',
-  ],
+  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@nuxt/fonts'],
 
   fonts: {
     families: [
@@ -30,6 +24,4 @@ export default defineNuxtConfig({
       },
     ],
   },
-
-  css: ['../assets/css/index.css'],
 })

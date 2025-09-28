@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Header />
+    <AppHeader />
     <HeaderSeparator />
     <HeaderNav />
     <!-- content -->
     <main class="max-w-[1640px] mx-auto mt-[90px] px-8 mb-[1000px]">
-      <section>
+      <!-- <section>
         <Hero />
       </section>
       <section class="max-w-[1440px] mx-auto mt-[100px]">
@@ -16,8 +16,8 @@
       </section>
       <section class="mx-auto mt-[100px]">
         <Guarantees />
-      </section>
+      </section> -->
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>

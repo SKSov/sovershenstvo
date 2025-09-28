@@ -1,16 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-color: theme('colors.white');
-  color: theme('colors.black');
+  font-family: Inter, sans-serif;
   overflow-x: hidden;
 }
 
-/* Global font family */
-html,
-body,
-#__nuxt {
-  font-family: theme('fontFamily.inter');
+.container {
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-radius: 50px;
+}
+
+/* Глобальные отступы для всех страниц */
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Адаптивные отступы для wrapper */
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
+
+/* Универсальные классы */
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.separator {
+  width: 1px;
+  height: 20px;
+  background: #000;
+  /* margin: 0 15px; */
 }
