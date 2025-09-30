@@ -34,7 +34,7 @@
 <style scoped>
 /* Strengths Section */
 .strengths {
-  padding: 80px 0;
+  padding: 100px 0;
   background: #fff;
   max-width: 1700px;
   margin: 0 auto;
