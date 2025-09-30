@@ -7,6 +7,7 @@
       <MainStrengths />
       <MainServices />
       <MainOffers />
+      <MainUnique />
       <!-- <section class="max-w-[1440px] mx-auto mt-[100px]">
         <About />
       </section>
