@@ -14,7 +14,7 @@
           <button class="hero-btn">Записаться на прием</button>
         </div>
         <div class="hero-image">
-          <img src="/images/imageIdealZyb.png" alt="Идеальная улыбка" />
+          <img src="/images/heroBanner.png" alt="Идеальная улыбка" />
         </div>
       </div>
     </div>
@@ -504,13 +504,16 @@
 }
 
 .hero-btn {
-  padding: 15px 30px;
+  padding: 24px 39px;
+  border-radius: 59px;
   background: #0079ff;
-  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 17px;
-  font-weight: 600;
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   cursor: pointer;
   transition: background 0.3s;
 }

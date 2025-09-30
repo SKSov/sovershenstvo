@@ -1,12 +1,12 @@
 <template>
   <div>
     <AppHeader />
-    <HeaderSeparator />
-    <HeaderNav />
     <!-- content -->
-    <main>
+    <main style="margin-bottom: 1000px">
       <MainHero />
       <MainStrengths />
+      <MainServices />
+      <MainOffers />
       <!-- <section class="max-w-[1440px] mx-auto mt-[100px]">
         <About />
       </section>
