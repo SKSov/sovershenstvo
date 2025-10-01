@@ -3,7 +3,7 @@
     <AppHeader />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
-      <AboutHero />
+      <TherapyHero />
       <AboutMission />
       <PriceTable />
       <FeedbackForm />
