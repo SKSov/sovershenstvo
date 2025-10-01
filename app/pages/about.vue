@@ -3,6 +3,7 @@
     <AppHeader />
     <main>
       <AboutHero />
+      <AboutMission />
       <CommentsSlider />
       <FeedbackForm />
       <LicensesSlider />
