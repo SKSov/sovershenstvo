@@ -40,7 +40,15 @@
 </template>
 
 <script setup>
-const data = [
+const props = defineProps({
+  customData: {
+    type: Array,
+    required: false,
+    default: () => [],
+  },
+})
+
+const data = props.customData || [
   {
     title: 'Имплантация',
     children: [
