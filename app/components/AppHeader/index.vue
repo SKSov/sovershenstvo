@@ -92,7 +92,7 @@
         <NuxtLink to="/about" class="mobile-nav-link">О нас</NuxtLink>
         <NuxtLink to="/offers/therapy" class="mobile-nav-link">Услуги</NuxtLink>
         <NuxtLink to="/pricing" class="mobile-nav-link">Стоимость услуг</NuxtLink>
-        <NuxtLink to="/specialists" class="mobile-nav-link">Специалисты</NuxtLink>
+        <NuxtLink to="/doctors" class="mobile-nav-link">Специалисты</NuxtLink>
         <NuxtLink to="/promotions" class="mobile-nav-link">Акции</NuxtLink>
         <NuxtLink to="/reviews" class="mobile-nav-link">Отзывы</NuxtLink>
       </nav>
@@ -121,7 +121,7 @@
         <div class="nav-separator"></div>
         <NuxtLink to="/pricing" class="nav-link">Стоимость услуг</NuxtLink>
         <div class="nav-separator"></div>
-        <NuxtLink to="/specialists" class="nav-link">Специалисты</NuxtLink>
+        <NuxtLink to="/doctors" class="nav-link">Специалисты</NuxtLink>
         <div class="nav-separator"></div>
         <NuxtLink to="/promotions" class="nav-link">Акции</NuxtLink>
         <div class="nav-separator"></div>

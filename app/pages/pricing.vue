@@ -2,16 +2,12 @@
   <div>
     <AppHeader />
     <main>
-      <MainHero />
-      <MainStrengths />
-      <MainServices />
-      <MainOffers />
-      <MainUnique />
-      <MainDetails />
-      <MainWhy />
+      <AppBreadcrumbs :path="breadcrumbs" />
+      <PricingHero />
       <PriceTable :data="pricingData" />
+      <MainUnique />
+      <AboutMission />
       <FeedbackForm />
-      <CommentsSlider />
       <LicensesSlider />
     </main>
     <AppFooter />
@@ -19,6 +15,11 @@
 </template>
 
 <script setup>
+const breadcrumbs = [
+  { path: '/', name: 'Главная' },
+  { path: '/pricing', name: 'Стоимость услуг' },
+]
+
 const pricingData = [
   {
     title: 'Имплантация',

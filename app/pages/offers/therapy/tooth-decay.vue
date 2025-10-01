@@ -4,7 +4,7 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <TherapyToothDecayHero />
-      <PriceTable :custom-data="priceTableData" />
+      <PriceTable :data="priceTableData" />
       <AboutMission />
       <FeedbackForm />
       <TherapyToothDecayTextBlock />

@@ -33,83 +33,22 @@
       </div>
 
       <div class="price-button">
-        <button class="price-btn">Записаться на прием</button>
+        <button class="price-btn" @click="navigateTo('/offers/therapy/tooth-decay')">
+          Записаться на прием
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const props = defineProps({
-  customData: {
+defineProps({
+  data: {
     type: Array,
     required: false,
     default: () => [],
   },
 })
-
-const data = props.customData || [
-  {
-    title: 'Имплантация',
-    children: [
-      {
-        title: 'Установка импланта Osstem',
-        our_price: '15 000',
-        price: '19 000',
-      },
-      {
-        title: 'Установка импланта Straumann',
-        our_price: '15 000',
-        price: '19 000',
-      },
-      {
-        title: 'Установка импланта Neodent',
-        our_price: '15 000',
-        price: '19 000',
-      },
-    ],
-  },
-  {
-    title: 'Лечение зубов',
-    children: [
-      {
-        title: 'Лечение кариеса',
-        our_price: '15 000',
-        price: '19 000',
-      },
-      {
-        title: 'Лечение пульпита',
-        our_price: '15 000',
-        price: '19 000',
-      },
-    ],
-  },
-  {
-    title: 'Удаление зубов',
-    children: [
-      {
-        title: 'Удаление зуба',
-        our_price: '15 000',
-        price: '19 000',
-      },
-    ],
-  },
-  {
-    title: 'Гигиена и отбеливание',
-    children: [
-      {
-        title: 'Гигиена зубов',
-        our_price: '15 000',
-        price: '19 000',
-      },
-      {
-        title: 'Отбеливание зубов',
-        our_price: '15 000',
-        price: '19 000',
-      },
-    ],
-  },
-]
 </script>
 
 <style scoped>
@@ -204,6 +143,7 @@ const data = props.customData || [
 }
 
 .price-col--service {
+  max-width: 553px;
   color: #000;
   font-family: Inter;
   font-size: 30px;
