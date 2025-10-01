@@ -5,10 +5,10 @@
         <h2 class="comments-title">Что говорят клиенты</h2>
         <div class="comments-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
-            <ArrowLeft style="width: 41px; height: 41px;" class="icon" />
+            <ArrowLeft style="width: 41px; height: 41px" class="icon" />
           </button>
           <button class="nav-btn" aria-label="Следующий" @click="scrollNext">
-            <ArrowRight style="width: 41px; height: 41px;" class="icon" />
+            <ArrowRight style="width: 41px; height: 41px" class="icon" />
           </button>
         </div>
       </div>
@@ -166,7 +166,7 @@ function scrollPrev() {
   padding: 30px;
   min-height: 370px;
   border-radius: 35px;
-  background: #EAF2FC;
+  background: #eaf2fc;
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -180,7 +180,7 @@ function scrollPrev() {
 }
 
 .slide-date {
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -211,13 +211,14 @@ function scrollPrev() {
 
 .slide-text {
   margin-top: 28px;
-  color: #1E1E1E;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 150%; /* 21px */
-margin-bottom: 16px;
+  color: #1e1e1e;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+  margin-bottom: 16px;
 }
 
 .slide-user {
@@ -236,7 +237,7 @@ margin-bottom: 16px;
 }
 
 .user-name {
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;

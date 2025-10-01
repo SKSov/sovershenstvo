@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
     <!-- content -->
-    <main style="margin-bottom: 1000px">
+    <main>
       <MainHero />
       <MainStrengths />
       <MainServices />
@@ -24,6 +24,6 @@
         <Guarantees />
       </section> -->
     </main>
-    <!-- <Footer /> -->
+    <AppFooter />
   </div>
 </template>
