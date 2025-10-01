@@ -5,10 +5,10 @@
         <h2 class="comments-title">Что говорят клиенты</h2>
         <div class="comments-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
-            <ArrowLeft class="icon" />
+            <ArrowLeft style="width: 41px; height: 41px;" class="icon" />
           </button>
           <button class="nav-btn" aria-label="Следующий" @click="scrollNext">
-            <ArrowRight class="icon" />
+            <ArrowRight style="width: 41px; height: 41px;" class="icon" />
           </button>
         </div>
       </div>
