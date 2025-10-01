@@ -10,13 +10,14 @@
       <FeedbackForm />
       <LicensesSlider />
     </main>
-    <AppFooter />
   </div>
 </template>
 
 <script setup>
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
-  { path: '/about', name: 'О нас' },
+  { path: '/offers', name: 'Услуги' },
+  { path: '/offers/therapy', name: 'Лечение зубов' },
+  { path: '/offers/therapy/tooth-decay', name: 'Лечение кариеса' },
 ]
 </script>

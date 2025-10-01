@@ -61,7 +61,7 @@
   border-radius: 50px;
   background: #eaf2fc;
   position: relative;
-  padding: 60px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -146,6 +146,7 @@
 .img img {
   display: block;
   width: 100%;
+  height: 100%;
   object-position: center center;
 }
 

@@ -17,6 +17,7 @@
 <script setup>
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
-  { path: '/about', name: 'О нас' },
+  { path: '/offers', name: 'Услуги' },
+  { path: '/offers/therapy', name: 'Лечение зубов' },
 ]
 </script>
