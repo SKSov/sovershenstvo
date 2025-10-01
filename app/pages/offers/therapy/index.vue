@@ -5,10 +5,9 @@
       <AppBreadcrumbs :path="breadcrumbs" />
       <AboutHero />
       <AboutMission />
-      <AboutDoctors />
-      <CommentsSlider />
+      <PriceTable />
       <FeedbackForm />
-      <LicensesSlider />
+      <CommentsSlider />
     </main>
     <AppFooter />
   </div>

@@ -9,7 +9,7 @@
       <MainUnique />
       <MainDetails />
       <MainWhy />
-      <MainPrice />
+      <PriceTable />
       <FeedbackForm />
       <CommentsSlider />
       <LicensesSlider />
