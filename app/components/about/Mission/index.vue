@@ -166,7 +166,7 @@
   height: 240px;
   background: #e3f2fd;
   border-radius: 50px;
-  padding: 45px 75px 45px 45px;
+  padding: 35px 35px 35px 35px;
   display: flex;
   align-items: center;
   gap: 42px;

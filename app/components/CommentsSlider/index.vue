@@ -17,6 +17,7 @@
         <Swiper
           class="slider"
           :space-between="24"
+          :slides-per-view="3.2"
           :grab-cursor="true"
           :speed="600"
           :modules="modules"
@@ -25,8 +26,8 @@
           :breakpoints="{
             0: { slidesPerView: 1, spaceBetween: 16 },
             768: { slidesPerView: 2.2, spaceBetween: 20 },
-            1024: { slidesPerView: 3.2, spaceBetween: 22 },
-            1280: { slidesPerView: 3.8, spaceBetween: 24 },
+            1024: { slidesPerView: 2.4, spaceBetween: 22 },
+            1280: { slidesPerView: 3.2, spaceBetween: 24 },
           }"
           :free-mode="{ enabled: true, momentum: true, sticky: true }"
           @swiper="onSwiper"

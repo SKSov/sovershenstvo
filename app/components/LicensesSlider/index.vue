@@ -5,10 +5,10 @@
         <h2 class="licenses-title">Лицезии</h2>
         <div class="licenses-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
-            <ArrowLeft style="width: 41px; height: 41px;" class="icon" />
+            <ArrowLeft style="width: 41px; height: 41px" class="icon" />
           </button>
           <button class="nav-btn" aria-label="Следующий" @click="scrollNext">
-            <ArrowRight style="width: 41px; height: 41px;" class="icon" />
+            <ArrowRight style="width: 41px; height: 41px" class="icon" />
           </button>
         </div>
       </div>
@@ -17,6 +17,7 @@
         <Swiper
           class="slider"
           :space-between="24"
+          :slides-per-view="4.5"
           :grab-cursor="true"
           :speed="600"
           :modules="modules"
@@ -26,7 +27,7 @@
             0: { slidesPerView: 2, spaceBetween: 12 },
             768: { slidesPerView: 3, spaceBetween: 16 },
             1024: { slidesPerView: 4, spaceBetween: 20 },
-            1280: { slidesPerView: 5, spaceBetween: 24 },
+            1280: { slidesPerView: 4.5, spaceBetween: 24 },
           }"
           :free-mode="{ enabled: true, momentum: true, sticky: true }"
           @swiper="onSwiper"
@@ -42,7 +43,6 @@
       </ClientOnly>
     </div>
   </section>
-  
 </template>
 
 <script setup>
@@ -143,4 +143,3 @@ function scrollPrev() {
   }
 }
 </style>
-
