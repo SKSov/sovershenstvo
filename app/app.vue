@@ -2,10 +2,12 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <FeedbackModal :is-open="isOpen" @close="close" />
 </template>
 
 <script setup>
 const globals = await useGlobals()
+const { isOpen, close } = useFeedbackModal()
 
 useHead({
   title: globals.value.meta.title,

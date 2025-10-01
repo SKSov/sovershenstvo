@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <button class="header-call-btn">Заказать звонок</button>
+        <button class="header-call-btn" @click="openModal">Заказать звонок</button>
 
         <button id="burgerMenu" class="universal-burger-menu">
           <div class="universal-burger-line"></div>
@@ -130,6 +130,14 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openModal() {
+  open()
+}
+</script>
 
 <style scoped>
 /* Header */
