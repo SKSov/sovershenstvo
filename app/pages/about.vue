@@ -4,6 +4,7 @@
     <main>
       <AboutHero />
       <AboutMission />
+      <AboutDoctors />
       <CommentsSlider />
       <FeedbackForm />
       <LicensesSlider />
