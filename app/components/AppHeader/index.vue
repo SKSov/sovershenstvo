@@ -89,12 +89,12 @@
 
       <!-- Навигационное меню -->
       <nav class="mobile-navigation">
-        <a href="about.html" class="mobile-nav-link">О нас</a>
-        <a href="lechenie.html" class="mobile-nav-link">Услуги</a>
-        <a href="pricing.html" class="mobile-nav-link">Стоимость услуг</a>
-        <a href="specialists.html" class="mobile-nav-link">Специалисты</a>
-        <a href="promotions.html" class="mobile-nav-link">Акции</a>
-        <a href="reviews.html" class="mobile-nav-link">Отзывы</a>
+        <NuxtLink to="/about" class="mobile-nav-link">О нас</NuxtLink>
+        <NuxtLink to="/services" class="mobile-nav-link">Услуги</NuxtLink>
+        <NuxtLink to="/pricing" class="mobile-nav-link">Стоимость услуг</NuxtLink>
+        <NuxtLink to="/specialists" class="mobile-nav-link">Специалисты</NuxtLink>
+        <NuxtLink to="/promotions" class="mobile-nav-link">Акции</NuxtLink>
+        <NuxtLink to="/reviews" class="mobile-nav-link">Отзывы</NuxtLink>
       </nav>
 
       <!-- Меню режима разработчика -->
@@ -115,17 +115,17 @@
   <nav class="navigation">
     <div class="container">
       <div class="nav-menu">
-        <a href="about.html" class="nav-link">О нас</a>
+        <NuxtLink to="/about" class="nav-link">О нас</NuxtLink>
         <div class="nav-separator"></div>
-        <a href="#" class="nav-link">Услуги</a>
+        <NuxtLink to="/services" class="nav-link">Услуги</NuxtLink>
         <div class="nav-separator"></div>
-        <a href="#" class="nav-link">Стоимость услуг</a>
+        <NuxtLink to="/pricing" class="nav-link">Стоимость услуг</NuxtLink>
         <div class="nav-separator"></div>
-        <a href="#" class="nav-link">Специалисты</a>
+        <NuxtLink to="/specialists" class="nav-link">Специалисты</NuxtLink>
         <div class="nav-separator"></div>
-        <a href="#" class="nav-link">Акции</a>
+        <NuxtLink to="/promotions" class="nav-link">Акции</NuxtLink>
         <div class="nav-separator"></div>
-        <a href="#" class="nav-link">Отзывы</a>
+        <NuxtLink to="/reviews" class="nav-link">Отзывы</NuxtLink>
       </div>
     </div>
   </nav>
