@@ -4,9 +4,10 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <TherapyHero />
-      <AboutMission />
+      <TherapyOffers />
       <PriceTable :data="pricingData" />
       <FeedbackForm />
+      <TherapyCalculation />
       <CommentsSlider />
     </main>
     <AppFooter />
