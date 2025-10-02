@@ -9,7 +9,9 @@
       <FeedbackForm />
       <TherapyToothDecayTextBlock />
       <CommentsSlider />
+      <FAQForm />
     </main>
+    <AppFooter />
   </div>
 </template>
 

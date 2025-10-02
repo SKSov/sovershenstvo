@@ -9,6 +9,7 @@
       <CommentsSlider />
       <FeedbackForm />
       <LicensesSlider />
+      <FAQForm />
     </main>
     <AppFooter />
   </div>
