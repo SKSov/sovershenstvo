@@ -31,7 +31,10 @@
               </p>
             </div>
           </div>
-          <button class="therapy-btn">Записаться на прием</button>
+          <div class="btns">
+            <button class="therapy-btn">Записаться на прием</button>
+            <UIButton variant="secondary">Оставить отзыв</UIButton>
+          </div>
         </div>
         <div class="img">
           <img src="/images/page-promotions/hero.png" alt="promotions" />
@@ -135,5 +138,10 @@
 
 .therapy-btn:hover {
   background: #0056cc;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
 }
 </style>

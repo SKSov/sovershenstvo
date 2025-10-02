@@ -6,7 +6,7 @@
         <UISelect v-model="selectedProduct" :options="products" />
         <UISelect v-model="selectedDoctor" :options="doctors" />
       </div>
-      <div class="cards-grid">
+      <div class="cards-grid" :class="{ collapsed: !showMore }">
         <div class="block">
           <div class="user">
             <img class="avatar" src="/images/page-reviews/avatars/1.png" alt="avatar" />
@@ -169,6 +169,9 @@
           </div>
         </div>
       </div>
+      <UIButton variant="secondary" class="show-more-btn" @click="showMore = !showMore">{{
+        showMore ? 'Скрыть' : 'Показать ещё'
+      }}</UIButton>
     </div>
   </section>
 </template>
@@ -185,6 +188,8 @@ const doctors = ref([
   { value: 'kalashnikov', label: 'Калашников Денис Анатольевич' },
   { value: 'ivanov', label: 'Иванов Иван Иванович' },
 ])
+
+const showMore = ref(false)
 
 const selectedProduct = ref(products.value[0])
 const selectedDoctor = ref(doctors.value[0])
@@ -212,6 +217,10 @@ const selectedDoctor = ref(doctors.value[0])
   /* Two-column masonry layout */
   column-count: 2;
   column-gap: 20px;
+}
+
+.cards-grid.collapsed .block:nth-child(n + 5) {
+  display: none;
 }
 
 .block {
@@ -321,5 +330,9 @@ const selectedDoctor = ref(doctors.value[0])
   align-items: center;
   gap: 20px;
   margin-top: 30px;
+}
+
+.show-more-btn {
+  margin-top: 40px;
 }
 </style>
