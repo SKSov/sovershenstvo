@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="offers-title">Услуги</h2>
       <div class="grid">
-        <div class="item">
+        <NuxtLink to="/offers/therapy/tooth-decay" class="item">
           <div class="top">
             <div class="text">
               <div class="topic">Лечение кариеса</div>
@@ -15,7 +15,7 @@
             <p>от 15 000 ₽</p>
             <TherapyOffersIconsArrow />
           </div>
-        </div>
+        </NuxtLink>
         <div class="item">
           <div class="top">
             <div class="text">
