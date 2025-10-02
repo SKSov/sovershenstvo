@@ -4,6 +4,7 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <ReviewsHero />
+      <ReviewsCards />
       <FeedbackForm />
     </main>
     <AppFooter />
