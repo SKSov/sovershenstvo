@@ -5,7 +5,9 @@
       <div class="header-content">
         <div class="header-separator"></div>
         <div class="header-logo">
-          <img src="/images/header-logo.png" alt="Логотип" />
+          <NuxtLink to="/">
+            <img src="/images/header-logo.png" alt="Логотип" />
+          </NuxtLink>
         </div>
 
         <div class="header-info">
