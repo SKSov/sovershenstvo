@@ -4,6 +4,7 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <AboutHero />
+      <DoctorsSlider />
       <AboutMission />
       <AboutDoctors />
       <CommentsSlider />

@@ -8,6 +8,7 @@
       <PriceTable :data="pricingData" />
       <FeedbackForm />
       <TherapyCalculation />
+      <DoctorsSlider />
       <CommentsSlider />
     </main>
     <AppFooter />

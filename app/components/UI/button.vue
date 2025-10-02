@@ -4,8 +4,7 @@
 
 <script setup>
 const { onClick } = defineProps({
-  text: { type: String, required: true },
-  onClick: { type: Function, required: true },
+  onClick: { type: Function, required: false, default: () => {} },
   variant: { type: String, required: false, default: 'primary' },
 })
 </script>

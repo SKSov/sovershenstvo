@@ -8,6 +8,7 @@
       <AboutMission />
       <FeedbackForm />
       <TherapyToothDecayTextBlock />
+      <DoctorsSlider />
       <CommentsSlider />
       <FAQForm />
     </main>
