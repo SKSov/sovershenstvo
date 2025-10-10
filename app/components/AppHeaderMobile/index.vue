@@ -129,7 +129,8 @@ onMounted(() => {
 }
 
 .m-header__logo img {
-  height: 30px;
+  width: 43.429px;
+  height: 38px;
   width: fit-content;
   display: block;
   margin-left: auto;
