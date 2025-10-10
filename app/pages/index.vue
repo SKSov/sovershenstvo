@@ -12,7 +12,7 @@
       <MainWhy />
       <PriceTable :data="pricingData" />
       <FeedbackForm />
-      <!-- <DoctorsSlider /> -->
+      <DoctorsSlider />
       <!-- <CommentsSlider /> -->
       <!-- <LicensesSlider /> -->
     </main>
