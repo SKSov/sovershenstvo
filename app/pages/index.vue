@@ -9,7 +9,7 @@
       <MainOffers />
       <MainUnique />
       <MainDetails />
-      <!-- <MainWhy /> -->
+      <MainWhy />
       <!-- <PriceTable :data="pricingData" /> -->
       <!-- <FeedbackForm /> -->
       <!-- <DoctorsSlider /> -->
