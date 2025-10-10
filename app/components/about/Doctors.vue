@@ -104,4 +104,44 @@
 .doctors-btn:hover {
   background: #0056cc;
 }
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+  .doctors {
+    padding: 50px 0;
+  }
+
+  .doctors-title {
+    font-size: clamp(24px, 7.2vw, 30px);
+    margin-bottom: 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .img img {
+    border-radius: 20px;
+  }
+
+  .block {
+    border-radius: 22px;
+    padding: 21px;
+    gap: 14px;
+  }
+
+  .items {
+    padding: 0;
+    gap: 10px;
+    font-size: clamp(12px, 3.6vw, 14px);
+    line-height: 1.25;
+  }
+
+  .doctors-btn {
+    padding: 10px 17px;
+    border-radius: 26px;
+    font-size: clamp(12px, 3.6vw, 14px);
+  }
+}
 </style>

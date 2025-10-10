@@ -38,15 +38,15 @@
 
         <div class="maps">
           <button class="map-btn g-map">
-            <AppFooterIconsGoogleMaps />
+            <AppFooterIconsGoogleMaps style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
           <button class="map-btn y-map">
-            <AppFooterIconsYandexMap />
+            <AppFooterIconsYandexMap style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
           <button class="map-btn two-map">
-            <AppFooterIcons2Map />
+            <AppFooterIcons2Map style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
         </div>
@@ -149,10 +149,10 @@
 
 .map-btn {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 30px 1fr;
   align-items: center;
-  gap: 8px;
-  padding: 10px;
+  gap: 5px;
+  padding: 10px 4px;
   border-radius: 12px;
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -161,7 +161,7 @@
 .map-btn p {
   margin: 0;
   color: #1e1e1e;
-  font-size: clamp(11px, 3.6vw, 13px);
+  font-size: 10px;
   font-weight: 600;
   line-height: 1.1;
 }

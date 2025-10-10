@@ -219,4 +219,53 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile adaptation (per Figma: "Забота о вашей улыбке – наша миссия") */
+@media (max-width: 768px) {
+  .strengths {
+    padding: 50px 0;
+  }
+
+  .strengths-title {
+    font-size: clamp(24px, 7.2vw, 30px);
+    margin-bottom: 16px;
+  }
+
+  .strengths-subtitle {
+    font-size: clamp(11px, 3.6vw, 13px);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .strengths-cards {
+    gap: 12px;
+  }
+
+  .strength-card {
+    height: auto;
+    min-height: 127px;
+    border-radius: 22px;
+    padding: 21px;
+    gap: 16px;
+  }
+
+  .strength-card:hover {
+    transform: none;
+  }
+
+  .card-icon {
+    width: 55px;
+  }
+
+  .card-title {
+    font-size: clamp(11px, 3.2vw, 12px);
+    line-height: 1.25;
+    font-weight: 500;
+  }
+
+  .card-text {
+    font-size: clamp(10px, 3vw, 11px);
+    line-height: 1.25;
+  }
+}
 </style>
