@@ -11,7 +11,7 @@
       <TherapyToothDecayTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <!-- <FAQForm /> -->
+      <FAQForm />
     </main>
     <AppFooter />
   </div>

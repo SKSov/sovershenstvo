@@ -31,10 +31,23 @@
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .text-block {
+    padding: 0;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 36px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 .block {
@@ -44,5 +57,16 @@
   font-style: normal;
   font-weight: 300;
   line-height: 125%; /* 22.5px */
+}
+
+@media (max-width: 768px) {
+  .block {
+    color: #000;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 125%; /* 12.5px */
+  }
 }
 </style>
