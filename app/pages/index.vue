@@ -7,8 +7,8 @@
       <MainStrengths />
       <MainServices />
       <MainOffers />
-      <!-- <MainUnique /> -->
-      <!-- <MainDetails /> -->
+      <MainUnique />
+      <MainDetails />
       <!-- <MainWhy /> -->
       <!-- <PriceTable :data="pricingData" /> -->
       <!-- <FeedbackForm /> -->
