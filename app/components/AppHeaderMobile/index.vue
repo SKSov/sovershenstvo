@@ -54,9 +54,9 @@
           <div class="label">Телефон</div>
           <div class="row">
             <AppHeaderIconsPhone />
-            <a href="tel:+73832500002"><span class="gray">8 (383)</span> 25-00-02</a>
+            <a href="tel:+73832500002"><span class="gray">8 (8412)</span> 25-00-02</a>
             <span class="sep">|</span>
-            <a href="tel:+7383951049"><span class="gray">8 (383)</span> 95-10-49</a>
+            <a href="tel:+7383951049"><span class="gray">8 (8412)</span> 95-10-49</a>
           </div>
         </div>
 
