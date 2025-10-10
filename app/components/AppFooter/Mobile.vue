@@ -56,13 +56,13 @@
         <div class="nav">
           <img src="/images/footer-logo.png" alt="logo" class="logo" />
           <div class="links">
-            <a href="#">Главная</a>
-            <a href="#">Услуги</a>
-            <a href="#">О нас</a>
-            <a href="#">Стоимость</a>
-            <a href="#">Специалисты</a>
-            <a href="#">Акции</a>
-            <a href="#">Отзывы</a>
+            <NuxtLink to="/">Главная</NuxtLink>
+            <NuxtLink to="/offers">Услуги</NuxtLink>
+            <NuxtLink to="/about">О нас</NuxtLink>
+            <NuxtLink to="/pricing">Стоимость</NuxtLink>
+            <NuxtLink to="/doctors">Специалисты</NuxtLink>
+            <NuxtLink to="/promotions">Акции</NuxtLink>
+            <NuxtLink to="/reviews">Отзывы</NuxtLink>
           </div>
         </div>
 
