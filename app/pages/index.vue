@@ -6,7 +6,7 @@
       <MainHero />
       <MainStrengths />
       <MainServices />
-      <!-- <MainOffers /> -->
+      <MainOffers />
       <!-- <MainUnique /> -->
       <!-- <MainDetails /> -->
       <!-- <MainWhy /> -->
