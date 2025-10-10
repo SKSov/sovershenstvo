@@ -13,10 +13,10 @@
       <PriceTable :data="pricingData" />
       <FeedbackForm />
       <DoctorsSlider />
-      <!-- <CommentsSlider /> -->
-      <!-- <LicensesSlider /> -->
+      <CommentsSlider />
+      <LicensesSlider />
     </main>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
 
