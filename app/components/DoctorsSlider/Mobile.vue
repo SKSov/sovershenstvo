@@ -36,30 +36,33 @@
             <article class="card">
               <div class="text">
                 <div class="name">{{ doctor.name }}</div>
-                <div class="about">
-                  Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько
-                  абзацев более менее осмысленного текста рыбы на русском языке, а начинающему
-                  оратору отточить навык публичных выступлений в домашних условиях.
-                </div>
+                <div v-if="doctor.role" class="role">{{ doctor.role }}</div>
+                <div v-if="aboutHtml(doctor)" class="about" v-html="aboutHtml(doctor)" />
               </div>
 
               <div class="photo">
-                <img :src="doctor.photo" :alt="doctor.name" loading="lazy" />
+                <NuxtImg :src="doctor.photo" :alt="doctor.name" loading="lazy" />
               </div>
 
-              <div class="section-title">Сертификаты</div>
-              <div class="licenses">
-                <img src="/images/doctors-slider/licenses/1.png" alt="License" />
-                <img src="/images/doctors-slider/licenses/2.png" alt="License" />
-                <img src="/images/doctors-slider/licenses/3.png" alt="License" />
-              </div>
+              <template v-if="doctor.licenses && doctor.licenses.length">
+                <div class="section-title">Сертификаты</div>
+                <div class="licenses">
+                  <NuxtImg
+                    v-for="(src, i) in doctor.licenses"
+                    :key="i"
+                    :src="src"
+                    alt="License"
+                    width="163"
+                    height="231"
+                    loading="lazy"
+                  />
+                </div>
+              </template>
 
-              <div class="section-title">Опыт</div>
-              <div class="experience">
-                Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько
-                абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору
-                отточить навык публичных выступлений в домашних условиях.
-              </div>
+              <template v-if="experienceHtml(doctor)">
+                <div class="section-title">Опыт</div>
+                <div class="experience" v-html="experienceHtml(doctor)" />
+              </template>
 
               <button class="cta-btn" @click="openFeedbackModal">Записаться на прием</button>
             </article>
@@ -81,11 +84,44 @@ import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
 
-const doctors = Array.from({ length: 6 }, (_, i) => ({
-  name: `Доктор №${i + 1}`,
-  role: 'Стоматолог-терапевт',
-  photo: `/images/doctors-slider/doctors/1.png`,
-}))
+// Reuse the same data shape as Desktop slider. You can import from a store later.
+const doctors = [
+  {
+    name: 'Калашников Денис Анатольевич',
+    role: 'хирург-имплантолог и ортопед, ведущий специалист сети клиник «Совершенство». Стаж работы 22 года.',
+    photo: `/images/doctors-slider/doctors/1.jpg`,
+  },
+  {
+    name: 'Светлана Анатольевна Зубкова',
+    role: 'Врач стоматолог-терапевт, кандидат медицинских наук',
+    photo: `/images/doctors-slider/doctors/2.jpg`,
+  },
+  {
+    name: 'Светлана Владимировна Фокина',
+    role: 'Врач-стоматолог-терапевт',
+    photo: `/images/doctors-slider/doctors/3.jpg`,
+  },
+  {
+    name: 'Марьям Гелаевна Бараташвили',
+    role: 'Врач стоматолог-терапевт',
+    photo: `/images/doctors-slider/doctors/4.jpg`,
+  },
+  {
+    name: 'Елена Андреевна Белякова',
+    role: 'Врач стоматолог-ортопед',
+    photo: `/images/doctors-slider/doctors/5.jpg`,
+  },
+  {
+    name: 'Надежда Владимировна Поташ',
+    role: 'Врач-стоматолог',
+    photo: `/images/doctors-slider/doctors/6.jpg`,
+  },
+  {
+    name: 'Сергей Иванович Акифьев',
+    role: 'Врач стоматолог-ортопед',
+    photo: `/images/doctors-slider/doctors/7.jpg`,
+  },
+]
 
 function onSwiper(instance) {
   swiperInstance = instance
@@ -104,6 +140,42 @@ const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
   open()
+}
+
+function aboutHtml(doctor) {
+  if (!doctor || !doctor.about) return ''
+  if (typeof doctor.about === 'string') return safeLines(doctor.about)
+  if (Array.isArray(doctor.about)) {
+    return doctor.about
+      .map((entry) => {
+        if (typeof entry === 'string') return `<p>${escapeHtml(entry)}</p>`
+        const title = entry.title ? `<strong>${escapeHtml(entry.title)}</strong>` : ''
+        const body = entry.info || entry.text || ''
+        return `${title}${title ? '<br />' : ''}${safeLines(body)}`
+      })
+      .join('<br /><br />')
+  }
+  return ''
+}
+
+function experienceHtml(doctor) {
+  if (!doctor || !doctor.experience) return ''
+  if (typeof doctor.experience === 'string') return safeLines(doctor.experience)
+  if (Array.isArray(doctor.experience)) return doctor.experience.map(escapeHtml).join('<br />')
+  return ''
+}
+
+function safeLines(text) {
+  return escapeHtml(String(text)).replace(/\n/g, '<br />')
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
 }
 </script>
 
@@ -191,6 +263,16 @@ function openFeedbackModal() {
   font-size: clamp(18px, 5vw, 22px);
   font-style: normal;
   font-weight: 600;
+  line-height: 1.25;
+}
+
+.role {
+  margin-top: 4px;
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: clamp(12px, 3.6vw, 13px);
+  font-style: normal;
+  font-weight: 400;
   line-height: 1.25;
 }
 
