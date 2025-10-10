@@ -11,7 +11,7 @@
       <MainDetails />
       <MainWhy />
       <PriceTable :data="pricingData" />
-      <!-- <FeedbackForm /> -->
+      <FeedbackForm />
       <!-- <DoctorsSlider /> -->
       <!-- <CommentsSlider /> -->
       <!-- <LicensesSlider /> -->
