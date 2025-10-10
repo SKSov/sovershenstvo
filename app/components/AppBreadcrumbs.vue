@@ -31,6 +31,13 @@ defineProps({
   margin-top: 15px;
 }
 
+@media (max-width: 768px) {
+  .breadcrumbs-list {
+    gap: 5px;
+    margin-top: 10px;
+  }
+}
+
 .breadcrumbs-separator {
   color: #878787;
   font-family: Inter;
@@ -38,6 +45,12 @@ defineProps({
   font-style: normal;
   font-weight: 300;
   line-height: 125%; /* 22.5px */
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs-separator {
+    font-size: 14px;
+  }
 }
 
 .breadcrumbs-link {
@@ -49,9 +62,21 @@ defineProps({
   line-height: 125%; /* 22.5px */
 }
 
+@media (max-width: 768px) {
+  .breadcrumbs-link {
+    font-size: 14px;
+  }
+}
+
 .breadcrumbs-item {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs-item {
+    gap: 5px;
+  }
 }
 </style>

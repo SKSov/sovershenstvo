@@ -1,6 +1,7 @@
 <template>
   <div>
-    <AppHeader />
+    <AppHeader v-if="!isMobile" />
+    <AppHeaderMobile v-else />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <TherapyToothDecayHero />
@@ -10,13 +11,22 @@
       <TherapyToothDecayTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <FAQForm />
+      <!-- <FAQForm /> -->
     </main>
     <AppFooter />
   </div>
 </template>
 
 <script setup>
+const isMobile = ref(false)
+
+onMounted(() => {
+  const mq = window.matchMedia('(max-width: 991px)')
+  const apply = () => (isMobile.value = mq.matches)
+  apply()
+  mq.addEventListener('change', apply)
+  onBeforeUnmount(() => mq.removeEventListener('change', apply))
+})
 const priceTableData = [
   {
     title: 'Лечение кариеса',
@@ -47,7 +57,6 @@ const priceTableData = [
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
   { path: '/offers', name: 'Услуги' },
-  { path: '/offers/therapy', name: 'Лечение зубов' },
-  { path: '/offers/therapy/tooth-decay', name: 'Лечение кариеса' },
+  { path: '/offers/tooth-decay', name: 'Лечение кариеса' },
 ]
 </script>
