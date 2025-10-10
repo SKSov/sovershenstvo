@@ -34,12 +34,20 @@
               <p>человека в команде</p>
             </div>
           </div>
-          <button class="about-btn">Записаться на прием</button>
+          <button class="about-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .about {

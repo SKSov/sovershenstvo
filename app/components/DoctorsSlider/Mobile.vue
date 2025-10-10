@@ -61,7 +61,7 @@
                 отточить навык публичных выступлений в домашних условиях.
               </div>
 
-              <button class="cta-btn">Записаться на прием</button>
+              <button class="cta-btn" @click="openFeedbackModal">Записаться на прием</button>
             </article>
           </SwiperSlide>
         </Swiper>
@@ -98,6 +98,12 @@ function scrollNext() {
 function scrollPrev() {
   if (swiperInstance && swiperInstance.activeIndex > 0)
     swiperInstance.slideTo(swiperInstance.activeIndex - 1, 600)
+}
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
 }
 </script>
 

@@ -30,7 +30,7 @@
             <p>человека в команде</p>
           </div>
         </div>
-        <button class="about-btn">Записаться на прием</button>
+        <button class="about-btn" @click="openFeedbackModal">Записаться на прием</button>
       </div>
     </div>
   </section>
@@ -38,6 +38,12 @@
 
 <script setup>
 import AboutHeroIconsQuotes from './Icons/quotes.vue'
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
 </script>
 
 <style scoped>

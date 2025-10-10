@@ -73,8 +73,6 @@
           <a href="#">Пользовательское соглашение</a>
           <p>{{ new Date().getFullYear() }}. Все права защищены.</p>
         </div>
-
-        <!-- <button class="cta">Записаться на прием</button> -->
       </footer>
     </div>
   </section>

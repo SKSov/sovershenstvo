@@ -19,7 +19,7 @@
             </span>
           </label>
 
-          <button class="submit-btn">Записаться на прием</button>
+          <button class="submit-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
 
         <div class="form-image-wrap">
@@ -29,6 +29,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .feedback-mobile {

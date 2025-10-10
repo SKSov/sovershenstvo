@@ -29,15 +29,19 @@
       </div>
 
       <div class="price-button">
-        <button class="price-btn" @click="navigateTo('/offers/therapy/tooth-decay')">
-          Записаться на прием
-        </button>
+        <button class="price-btn" @click="openFeedbackModal">Записаться на прием</button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+
 defineProps({
   data: {
     type: Array,

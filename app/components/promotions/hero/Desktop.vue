@@ -32,7 +32,7 @@
               </p>
             </div>
           </div>
-          <button class="therapy-btn">Записаться на прием</button>
+          <button class="therapy-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
         <div class="img">
           <img src="/images/page-promotions/hero.png" alt="promotions" />
@@ -41,6 +41,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .therapy-hero {

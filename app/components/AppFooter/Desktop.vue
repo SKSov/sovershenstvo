@@ -67,7 +67,7 @@
               <a href="#">Пользовательское соглашение</a>
               <p>{{ new Date().getFullYear() }}. Все права защищены.</p>
             </div>
-            <button class="footer-btn">Записаться на прием</button>
+            <button class="footer-btn" @click="openFeedbackModal">Записаться на прием</button>
           </div>
         </div>
         <div class="map">
@@ -77,6 +77,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .footer {

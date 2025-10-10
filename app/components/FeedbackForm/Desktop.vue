@@ -16,7 +16,7 @@
           <input class="input" type="text" placeholder="Ваш телефон:" />
         </div>
         <div class="controls">
-          <button class="controls-btn">Записаться на прием</button>
+          <button class="controls-btn" @click="openFeedbackModal">Записаться на прием</button>
           <div class="consent">
             <input id="consent" type="checkbox" class="consent-input" />
             <label for="consent" class="consent-label">
@@ -31,6 +31,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .feedback-form {

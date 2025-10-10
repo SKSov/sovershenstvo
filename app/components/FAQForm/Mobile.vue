@@ -37,7 +37,7 @@
               </span>
             </label>
           </div>
-          <button class="controls-btn">Записаться на прием</button>
+          <button class="controls-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
       </div>
     </div>
@@ -46,6 +46,12 @@
 
 <script setup>
 import { ref } from 'vue'
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
 
 const faqs = ref([
   {

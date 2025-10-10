@@ -27,7 +27,7 @@
             <input class="input" type="text" placeholder="Ваш телефон:" />
           </div>
           <div class="controls">
-            <button class="controls-btn">Записаться на прием</button>
+            <button class="controls-btn" @click="openFeedbackModal">Записаться на прием</button>
             <div class="consent">
               <input id="faq-consent" type="checkbox" class="consent-input" />
               <label for="faq-consent" class="consent-label">
@@ -46,6 +46,12 @@
 
 <script setup>
 import { ref } from 'vue'
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
 
 const faqs = ref([
   {

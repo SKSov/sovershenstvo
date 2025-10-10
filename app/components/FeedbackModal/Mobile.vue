@@ -1,0 +1,366 @@
+<template>
+  <Teleport to="body">
+    <Transition name="fade">
+      <div v-if="isOpen" class="modal-overlay" @click="handleClose" />
+    </Transition>
+
+    <Transition name="modal">
+      <div
+        v-if="isOpen"
+        class="modal-container"
+        role="dialog"
+        aria-modal="true"
+        @click.self="handleClose"
+      >
+        <div class="modal-content">
+          <div class="form">
+            <div class="title">Оставьте свои контакты,</div>
+            <div class="subtitle">
+              мы свяжемся с Вами и запишем <br />
+              на удобное для Вас время
+            </div>
+            <div class="inputs">
+              <input class="input" type="text" placeholder="Ваше имя:" />
+              <input class="input" type="text" placeholder="Ваш телефон:" />
+            </div>
+            <div class="controls">
+              <div class="consent">
+                <input id="modalm-consent" type="checkbox" class="consent-input" />
+                <label for="modalm-consent" class="consent-label">
+                  <span class="consent-box"></span>
+                  <span class="consent-text">
+                    Я согласен с <a href="#">политикой конфиденциальности</a>
+                  </span>
+                </label>
+              </div>
+              <button class="controls-btn" @click="handleSubmit">Отправить</button>
+            </div>
+          </div>
+          <img src="/images/feedback-modal.png" alt="feedbackModal" class="modal-image" />
+        </div>
+      </div>
+    </Transition>
+
+    <Transition name="toast">
+      <div v-if="showSuccessNotification" class="toast">
+        <div class="toast-box">
+          <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path
+              d="M5 13l4 4L19 7"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <div class="toast-content">
+            <p class="toast-title">Заявка отправлена!</p>
+            <p class="toast-subtitle">Мы свяжемся с вами в ближайшее время</p>
+          </div>
+          <button
+            class="toast-close"
+            aria-label="Закрыть уведомление"
+            @click="showSuccessNotification = false"
+          >
+            <svg class="toast-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </Transition>
+  </Teleport>
+</template>
+
+<script setup>
+defineProps({
+  isOpen: { type: Boolean, default: false },
+})
+
+const emit = defineEmits(['close'])
+const showSuccessNotification = ref(false)
+
+function handleClose() {
+  emit('close')
+}
+
+function handleSubmit() {
+  handleClose()
+  showSuccessNotification.value = true
+  setTimeout(() => {
+    showSuccessNotification.value = false
+  }, 3000)
+}
+</script>
+
+<style scoped>
+.modal-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-top: 16px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.title {
+  color: #1e1e1e;
+  font-family: Inter;
+  font-size: clamp(24px, 7.2vw, 30px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.subtitle {
+  color: #000;
+  font-family: Inter;
+  font-size: clamp(12px, 4vw, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 14px 21px;
+  border-radius: 39px;
+  background: #fff;
+  border: none;
+  outline: none;
+  font-family: Inter;
+  font-size: clamp(12px, 3.6vw, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.controls {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls-btn {
+  padding: 10px 17px;
+  background: #0079ff;
+  border-radius: 26px;
+  border: none;
+  color: #fff;
+  font-family: Inter;
+  font-size: clamp(12px, 3.6vw, 14px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.consent-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.consent-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  width: auto;
+}
+
+.consent-label a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.consent-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #878787;
+  background: #fff;
+  position: relative;
+}
+
+.consent-text {
+  color: #878787;
+  font-family: Inter;
+  font-size: clamp(10px, 3.2vw, 12px);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.consent-input:checked + .consent-label .consent-box {
+  background: #0079ff;
+  border-color: #0079ff;
+}
+
+.consent-input:checked + .consent-label .consent-box::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 6px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+.consent-input:focus + .consent-label .consent-box {
+  box-shadow: 0 0 0 3px rgba(0, 121, 255, 0.2);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+}
+
+.modal-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.modal-content {
+  border-radius: 20px;
+  background: #eaf2fc;
+  width: calc(100% - 24px);
+  max-width: 420px;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form {
+  padding: 20px 20px 0 20px;
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.25s ease;
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+/* Toast */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.25s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.toast {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1060;
+  max-width: 360px;
+}
+
+.toast-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #16a34a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  color: #eafff1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-family: Inter;
+  font-weight: 600;
+}
+
+.toast-subtitle {
+  font-family: Inter;
+  font-size: 13px;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #eafff1;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.toast-close-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 992px) {
+  .modal-content {
+    display: none;
+  }
+}
+</style>

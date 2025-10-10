@@ -11,16 +11,26 @@
               профессионализма</span
             >
           </p>
-          <button class="hero-btn">Записаться на прием</button>
+          <button class="hero-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
         <div class="hero-image">
           <img src="/images/heroBanner.png" alt="Идеальная улыбка" />
         </div>
-        <button class="hero-btn hero-btn--mobile">Записаться на прием</button>
+        <button class="hero-btn hero-btn--mobile" @click="openFeedbackModal">
+          Записаться на прием
+        </button>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 /* Hero Section */
