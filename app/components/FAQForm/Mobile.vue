@@ -37,7 +37,7 @@
               </span>
             </label>
           </div>
-          <button class="controls-btn" @click="openFeedbackModal">Записаться на прием</button>
+          <button class="controls-btn" @click="handleSubmit">Записаться на прием</button>
         </div>
       </div>
     </div>
@@ -45,12 +45,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+const showSuccessNotification = ref(false)
 
-const { open } = useFeedbackModal()
-
-function openFeedbackModal() {
-  open()
+function handleSubmit() {
+  showSuccessNotification.value = true
+  setTimeout(() => {
+    showSuccessNotification.value = false
+  }, 3000)
 }
 
 const faqs = ref([

@@ -19,7 +19,7 @@
             </span>
           </label>
 
-          <button class="submit-btn" @click="openFeedbackModal">Записаться на прием</button>
+          <button class="submit-btn" @click="handleSubmit">Записаться на прием</button>
         </div>
 
         <div class="form-image-wrap">
@@ -31,10 +31,13 @@
 </template>
 
 <script setup>
-const { open } = useFeedbackModal()
+const showSuccessNotification = ref(false)
 
-function openFeedbackModal() {
-  open()
+function handleSubmit() {
+  showSuccessNotification.value = true
+  setTimeout(() => {
+    showSuccessNotification.value = false
+  }, 3000)
 }
 </script>
 

@@ -16,7 +16,7 @@
           <input class="input" type="text" placeholder="Ваш телефон:" />
         </div>
         <div class="controls">
-          <button class="controls-btn" @click="openFeedbackModal">Записаться на прием</button>
+          <button class="controls-btn" @click="handleSubmit">Записаться на прием</button>
           <div class="consent">
             <input id="consent" type="checkbox" class="consent-input" />
             <label for="consent" class="consent-label">
@@ -33,10 +33,13 @@
 </template>
 
 <script setup>
-const { open } = useFeedbackModal()
+const showSuccessNotification = ref(false)
 
-function openFeedbackModal() {
-  open()
+function handleSubmit() {
+  showSuccessNotification.value = true
+  setTimeout(() => {
+    showSuccessNotification.value = false
+  }, 3000)
 }
 </script>
 
