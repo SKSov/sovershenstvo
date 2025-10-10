@@ -13,7 +13,7 @@
             <p class="name">Инкар Мухаметкан</p>
             <p class="date">13.09.2023</p>
             <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
+            <ReviewsCardsStars style="flex-shrink: 0" />
           </div>
           <div class="text">
             Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
@@ -334,5 +334,114 @@ const selectedDoctor = ref(doctors.value[0])
 
 .show-more-btn {
   margin-top: 40px;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+  .reviews-cards {
+    padding: 60px 0;
+  }
+
+  .reviews-cards-title {
+    font-size: clamp(24px, 7.2vw, 30px);
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .cards-grid {
+    margin-top: 16px;
+    column-count: 1;
+    column-gap: 12px;
+  }
+
+  .block {
+    padding: 20px;
+    border-radius: 22px;
+    margin-bottom: 12px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .name {
+    font-size: clamp(14px, 4.5vw, 16px);
+    margin-right: 12px;
+  }
+
+  .date,
+  .platform {
+    font-size: clamp(12px, 3.6vw, 14px);
+    margin-right: 10px;
+  }
+
+  .text {
+    margin-top: 12px;
+    font-size: clamp(12px, 3.6vw, 14px);
+    line-height: 1.25;
+  }
+
+  .info {
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .doctor,
+  .products {
+    flex-direction: column;
+    gap: 12px;
+    font-size: clamp(12px, 3.6vw, 14px);
+  }
+
+  .show-more-btn {
+    margin-top: 20px;
+    padding: 10px 17px;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  /* Re-layout user row into two lines on mobile */
+  .user {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 4px;
+    align-items: center;
+  }
+
+  .avatar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+  }
+
+  .name {
+    grid-column: 2;
+    grid-row: 1;
+    margin-right: 0;
+  }
+
+  .date {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 0;
+  }
+
+  .platform {
+    grid-column: 3;
+    grid-row: 2;
+    margin-right: 0;
+  }
 }
 </style>
