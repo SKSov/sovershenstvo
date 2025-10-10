@@ -41,6 +41,40 @@
         </div>
       </div>
     </div>
+    <Teleport to="body">
+      <Transition name="toast">
+        <div v-if="showSuccessNotification" class="toast">
+          <div class="toast-box">
+            <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M5 13l4 4L19 7"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="toast-content">
+              <p class="toast-title">Заявка отправлена!</p>
+              <p class="toast-subtitle">Мы свяжемся с вами в ближайшее время</p>
+            </div>
+            <button
+              class="toast-close"
+              aria-label="Закрыть уведомление"
+              @click="showSuccessNotification = false"
+            >
+              <svg class="toast-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </section>
 </template>
 
@@ -328,5 +362,73 @@ function toggle(index) {
   .faq-form-mobile {
     display: none;
   }
+}
+
+/* Toast */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.25s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.toast {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1060;
+  max-width: 360px;
+}
+
+.toast-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #16a34a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  color: #eafff1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-family: Inter;
+  font-weight: 600;
+}
+
+.toast-subtitle {
+  font-family: Inter;
+  font-size: 13px;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #eafff1;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.toast-close-icon {
+  width: 16px;
+  height: 16px;
 }
 </style>
