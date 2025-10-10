@@ -1,7 +1,8 @@
 <template>
   <section class="services">
     <div class="container">
-      <h2 class="services-title">Наши врачи помогут</h2>
+      <h2 class="services-title services-title--desktop">Наши врачи помогут</h2>
+      <h2 class="services-title services-title--mobile">Наши врачи помогут</h2>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-content">
@@ -91,6 +92,22 @@
   .services {
     padding: 50px 0;
   }
+
+  /* Switch titles on mobile and apply requested styles */
+  .services-title--desktop {
+    display: none !important;
+  }
+
+  .services-title--mobile {
+    display: block !important;
+    color: #1e1e1e !important;
+    font-family: Inter !important;
+    font-size: 30px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    margin-bottom: 40px !important;
+  }
 }
 
 @media (max-width: 360px) {
@@ -109,11 +126,22 @@
   margin-bottom: 40px;
 }
 
+/* Mobile alternate title hidden by default */
+.services-title--mobile {
+  display: none;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .service-card {

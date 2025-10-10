@@ -1,9 +1,13 @@
 <template>
   <section class="strengths">
     <div class="container">
-      <h2 class="strengths-title">
+      <h2 class="strengths-title strengths-title--desktop">
         Наши <br />
         сильные стороны
+      </h2>
+      <h2 class="strengths-title strengths-title--mobile">
+        Наши сильные <br />
+        стороны
       </h2>
       <div class="strengths-cards">
         <div class="strength-card">
@@ -57,6 +61,22 @@
   .strengths {
     padding: 50px 0;
   }
+
+  /* Switch titles on mobile and apply requested styles */
+  .strengths-title--desktop {
+    display: none !important;
+  }
+
+  .strengths-title--mobile {
+    display: block !important;
+    color: #1e1e1e !important;
+    font-family: Inter !important;
+    font-size: 30px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    margin-bottom: 23px !important;
+  }
 }
 
 @media (max-width: 360px) {
@@ -73,6 +93,11 @@
   font-weight: 600;
   line-height: normal;
   margin-bottom: 23px;
+}
+
+/* Mobile alternate title hidden by default */
+.strengths-title--mobile {
+  display: none;
 }
 
 .strengths-cards {
