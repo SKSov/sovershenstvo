@@ -3,7 +3,7 @@
     <AppHeader v-if="!isMobile" />
     <AppHeaderMobile v-else />
     <main>
-      <!-- <MainHero />
+      <MainHero />
       <MainStrengths />
       <MainServices />
       <MainOffers />
@@ -14,7 +14,7 @@
       <FeedbackForm />
       <DoctorsSlider />
       <CommentsSlider />
-      <LicensesSlider /> -->
+      <LicensesSlider />
     </main>
     <AppFooter />
   </div>
