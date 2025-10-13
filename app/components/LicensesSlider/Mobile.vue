@@ -55,7 +55,7 @@ import ArrowRight from './Icons/arrowRight.vue'
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
 
-const images = Array.from({ length: 7 }, (_, i) => `/images/licenses/${i + 1}.png`)
+const images = Array.from({ length: 10 }, (_, i) => `/images/licenses/${i + 1}.jpg`)
 
 function onSwiper(instance) {
   swiperInstance = instance

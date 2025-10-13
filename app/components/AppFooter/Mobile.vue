@@ -5,6 +5,17 @@
         <div class="head">
           <div class="title">Контакты</div>
           <div class="subtitle">Как нас найти</div>
+          <div class="addresses">
+            <p :class="{ active: selectedAddress === 1 }" @click="selectedAddress = 1">
+              ул. Глазунова, 1
+            </p>
+            <p :class="{ active: selectedAddress === 2 }" @click="selectedAddress = 2">
+              ул. Терновского, 132
+            </p>
+            <p :class="{ active: selectedAddress === 3 }" @click="selectedAddress = 3">
+              ул. Ленина, 20
+            </p>
+          </div>
         </div>
 
         <div class="map-image"><img src="/images/footer-map.png" alt="map" /></div>
@@ -12,40 +23,35 @@
         <div class="contacts">
           <div class="col">
             <div class="row">
-              <AppFooterIconsCall style="flex-shrink: 0" /><span>25-00-02 | 95-10-49</span>
+              <AppFooterIconsCall style="flex-shrink: 0" /><span>95-10-49 | 20 38 78</span>
+            </div>
+            <div class="row">
+              <AppFooterIconsCall style="flex-shrink: 0" /><span>+7 (8412) 95-10-49</span>
             </div>
             <div class="row">
               <AppFooterIconsMail style="flex-shrink: 0" /><span>sovershenstvo@pochta.ru</span>
             </div>
             <div class="row address">
               <AppFooterIconsLocation style="flex-shrink: 0" /><span
-                >г. Пенза<br />ул. Терновского, 132 | ул. Глазунова, 1</span
-              >
-            </div>
-          </div>
-          <div class="col">
-            <div class="row">
-              <AppFooterIconsInst style="flex-shrink: 0" /><span>@sovershenstvo</span>
-            </div>
-            <div class="row">
-              <AppFooterIconsTg style="flex-shrink: 0" /><span>@sovershenstvo</span>
-            </div>
-            <div class="row">
-              <AppFooterIconsCall style="flex-shrink: 0" /><span>+7(913) 766-81-15</span>
+                >г. Пенза<br />
+                <span v-if="selectedAddress === 1">ул. Терновского, 132</span>
+                <span v-if="selectedAddress === 2">ул. Глазунова, 1</span>
+                <span v-if="selectedAddress === 3">ул. Ленина, 20</span>
+              </span>
             </div>
           </div>
         </div>
 
         <div class="maps">
-          <button class="map-btn g-map">
+          <button class="map-btn g-map" @click="openGoogleMap">
             <AppFooterIconsGoogleMaps style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
-          <button class="map-btn y-map">
+          <button class="map-btn y-map" @click="openYandexMap">
             <AppFooterIconsYandexMap style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
-          <button class="map-btn two-map">
+          <button class="map-btn two-map" @click="openTwoMap">
             <AppFooterIcons2Map style="width: 30px; height: 30px" />
             <p>Проложить<br />маршрут</p>
           </button>
@@ -77,6 +83,25 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const selectedAddress = ref(1)
+
+function openGoogleMap() {
+  window.open('https://maps.google.com?saddr=Current+Location&daddr=53.222336,44.931484', '_blank')
+}
+
+function openYandexMap() {
+  window.open(
+    'https://3.redirect.appmetrica.yandex.com/route?start-lat=57.008838&start-lon=40.979283&end-lat=57.008838&end-lon=40.979283&tariffClass=econom&ref=mywebsiteru&appmetrica_tracking_id=25395763362139037',
+    '_blank',
+  )
+}
+
+function openTwoMap() {
+  window.open('https://2gis.ru/directions/points/|44.931484,53.222336', '_blank')
+}
+</script>
 
 <style scoped>
 .footer-mobile {
@@ -241,6 +266,32 @@
   height: 1px;
   background: #d9d9d9;
   margin: 10px 0;
+}
+
+.addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.addresses p {
+  font-family: Inter;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addresses p.active {
+  color: #4285f5;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0%;
 }
 
 @media (min-width: 769px) {

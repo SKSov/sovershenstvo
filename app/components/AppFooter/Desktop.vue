@@ -5,39 +5,50 @@
         <div class="content">
           <div class="title">Контакты</div>
           <div class="subtitle">Как нас найти</div>
+          <div class="addresses">
+            <p :class="{ active: selectedAddress === 1 }" @click="selectedAddress = 1">
+              ул. Глазунова, 1
+            </p>
+            <p :class="{ active: selectedAddress === 2 }" @click="selectedAddress = 2">
+              ул. Терновского, 132
+            </p>
+            <p :class="{ active: selectedAddress === 3 }" @click="selectedAddress = 3">
+              ул. Ленина, 20
+            </p>
+          </div>
           <div class="info">
             <div class="left">
-              <p><AppFooterIconsInst /><span>@sovershenstvo</span></p>
-              <p><AppFooterIconsTg /><span>@sovershenstvo</span></p>
-              <p><AppFooterIconsCall /><span>+7(913) 766-81-15</span></p>
+              <p><AppFooterIconsCall /><span>95-10-49 | 20 38 78</span></p>
+              <p><AppFooterIconsCall /><span>+7 (8412) 95-10-49</span></p>
             </div>
             <div class="right">
-              <p><AppFooterIconsCall /><span>25-00-02 | 95-10-49</span></p>
               <p><AppFooterIconsMail /><span>sovershenstvo@pochta.ru</span></p>
               <p>
-                <AppFooterIconsLocation /><span
-                  >г. Пенза <br />
-                  ул. Терновского, 132 | ул. Глазунова, 1</span
-                >
+                <AppFooterIconsLocation /><span>
+                  г. Пенза <br />
+                  <span v-if="selectedAddress === 1">ул. Терновского, 132</span>
+                  <span v-if="selectedAddress === 2">ул. Глазунова, 1</span>
+                  <span v-if="selectedAddress === 3">ул. Ленина, 20</span>
+                </span>
               </p>
             </div>
           </div>
           <div class="btns">
-            <div class="btn g-map">
+            <div class="btn g-map" @click="openGoogleMap">
               <AppFooterIconsGoogleMaps style="width: 56px; height: 56px" />
               <p>
                 Проложить <br />
                 маршрут
               </p>
             </div>
-            <div class="btn y-map">
+            <div class="btn y-map" @click="openYandexMap">
               <AppFooterIconsYandexMap style="width: 36px; height: 44.5px" />
               <p>
                 Проложить <br />
                 маршрут
               </p>
             </div>
-            <div class="btn two-map">
+            <div class="btn two-map" @click="openTwoMap">
               <AppFooterIcons2Map style="width: 46px; height: 46px" />
               <p>
                 Проложить <br />
@@ -79,10 +90,26 @@
 </template>
 
 <script setup>
+const selectedAddress = ref(1)
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
   open()
+}
+
+function openGoogleMap() {
+  window.open('https://maps.google.com?saddr=Current+Location&daddr=53.222336,44.931484', '_blank')
+}
+
+function openYandexMap() {
+  window.open(
+    'https://3.redirect.appmetrica.yandex.com/route?start-lat=57.008838&start-lon=40.979283&end-lat=57.008838&end-lon=40.979283&tariffClass=econom&ref=mywebsiteru&appmetrica_tracking_id=25395763362139037',
+    '_blank',
+  )
+}
+
+function openTwoMap() {
+  window.open('https://2gis.ru/directions/points/|44.931484,53.222336', '_blank')
 }
 </script>
 
@@ -121,7 +148,7 @@ function openFeedbackModal() {
 .info {
   display: flex;
   gap: 33px;
-  margin-top: 43px;
+  margin-top: 30px;
 }
 
 .left {
@@ -287,5 +314,29 @@ function openFeedbackModal() {
 .map img {
   width: 100%;
   display: block;
+}
+
+.addresses {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.addresses p {
+  font-weight: 300;
+  font-style: Light;
+  font-size: 18px;
+  line-height: 125%;
+  letter-spacing: 0%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addresses p.active {
+  color: #4285f5;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 125%;
+  letter-spacing: 0%;
 }
 </style>
