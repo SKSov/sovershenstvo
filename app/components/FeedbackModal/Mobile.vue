@@ -14,7 +14,7 @@
       >
         <div class="modal-content">
           <div class="form">
-            <div class="title">Оставьте свои контакты,</div>
+            <div class="title">Закрепите за спец. предложение,</div>
             <div class="subtitle">
               мы свяжемся с Вами и запишем <br />
               на удобное для Вас время

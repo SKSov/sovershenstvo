@@ -61,11 +61,13 @@
       </div>
 
       <div class="services-button">
-        <button class="services-btn">Полный перечень услуг</button>
+        <button class="services-btn" @click="navigateTo('/offers')">Полный перечень услуг</button>
       </div>
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .services {

@@ -14,7 +14,10 @@
       >
         <div class="modal-content">
           <img src="/images/feedback-modal.png" alt="feedbackModal" class="modal-image" />
-          <div class="title">Оставьте свои контакты,</div>
+          <div class="title">
+            Закрепите за спец. <br />
+            предложение,
+          </div>
           <div class="subtitle">
             мы свяжемся с Вами и запишем <br />
             на удобное для Вас время
