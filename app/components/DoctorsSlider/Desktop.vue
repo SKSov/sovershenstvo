@@ -80,7 +80,7 @@
         </div>
       </ClientOnly>
 
-      <UIButton style="margin-top: 40px">Все специалисты</UIButton>
+      <UIButton style="margin-top: 40px" @click="navigateTo('/doctors')">Все специалисты</UIButton>
     </div>
   </section>
 </template>

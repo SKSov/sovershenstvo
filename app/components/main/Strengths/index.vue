@@ -21,7 +21,7 @@
           <div class="card-icon">
             <MainStrengthsIconsInsurance />
           </div>
-          <div class="card-text">Предоставляем гарантию на все виды лечения</div>
+          <div class="card-text">Несем ответственность за результат лечения</div>
         </div>
 
         <div class="strength-card">

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { navigateTo } from 'nuxt/app'
+</script>
+
 <template>
   <section class="details">
     <div class="container">
@@ -29,12 +33,14 @@
               </p>
             </div>
           </div>
-          <button class="details-btn">Узнать подробнее</button>
+          <button class="details-btn" @click="navigateTo('/about')">Узнать подробнее</button>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .details {

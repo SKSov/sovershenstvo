@@ -19,34 +19,21 @@
         <div class="item">
           <div class="top">
             <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
-            </div>
-            <TherapyOffersIconsSecond class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 15 000 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
+              <div class="topic">Имплантация</div>
+              <p>Установка импланта нового поколения без боли</p>
             </div>
             <TherapyOffersIconsThird class="icon" />
           </div>
           <div class="bottom">
-            <p>от 15 000 ₽</p>
+            <p>от 45 000 ₽</p>
             <TherapyOffersIconsArrow />
           </div>
         </div>
         <div class="item">
           <div class="top">
             <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
+              <div class="topic">Исправление прикуса</div>
+              <p>Установка брекетов и виниров</p>
             </div>
             <TherapyOffersIconsFourth class="icon" />
           </div>
@@ -58,26 +45,39 @@
         <div class="item">
           <div class="top">
             <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
+              <div class="topic">Установление коронки и протезов</div>
+              <p>А также других ортопедических конструкций</p>
             </div>
             <TherapyOffersIconsFifth class="icon" />
           </div>
           <div class="bottom">
-            <p>от 15 000 ₽</p>
+            <p>от 12 000 ₽</p>
             <TherapyOffersIconsArrow />
           </div>
         </div>
         <div class="item">
           <div class="top">
             <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
+              <div class="topic">Удаление зуба</div>
+              <p>Любая сложность операции</p>
             </div>
             <TherapyOffersIconsSixth class="icon" />
           </div>
           <div class="bottom">
-            <p>от 15 000 ₽</p>
+            <p>от 1 800 ₽</p>
+            <TherapyOffersIconsArrow />
+          </div>
+        </div>
+        <div class="item">
+          <div class="top">
+            <div class="text">
+              <div class="topic">Профессиональная чистка и отбеливание</div>
+              <p>Эстетические и профилактические процедуры</p>
+            </div>
+            <TherapyOffersIconsSecond class="icon" />
+          </div>
+          <div class="bottom">
+            <p>от 7 500 ₽</p>
             <TherapyOffersIconsArrow />
           </div>
         </div>
@@ -141,6 +141,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 125%; /* 22.5px */
+  min-height: 45px;
 }
 
 .text p {
@@ -151,6 +152,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 22.5px */
+  min-height: 35px;
 }
 
 .bottom {

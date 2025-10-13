@@ -7,8 +7,8 @@
       </h2>
 
       <div class="offers-grid">
-        <div class="card">
-          <img src="/images/offers/1.png" alt="Offer" />
+        <div class="card" @click="openFeedbackModal">
+          <NuxtImg quality="80" src="/images/offers/1.png" alt="Offer" loading="lazy" />
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
@@ -18,8 +18,8 @@
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
         </div>
-        <div class="card">
-          <img src="/images/offers/1.png" alt="Offer" />
+        <div class="card" @click="openFeedbackModal">
+          <NuxtImg quality="80" src="/images/offers/2.jpg" alt="Offer" loading="lazy" />
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
@@ -29,13 +29,13 @@
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
         </div>
-        <div class="card bottom">
+        <div class="card bottom" @click="openFeedbackModal">
           <div class="badge">Акция</div>
           <div class="title">Бесплатный прием врача хирурга-имплантолога</div>
           <div class="more-link"><span>Подробнее</span></div>
         </div>
         <div class="with-button">
-          <div class="card bottom">
+          <div class="card bottom" @click="openFeedbackModal">
             <div class="badge">Акция</div>
             <div class="title">
               Имплант зуба за <br />
@@ -43,14 +43,20 @@
             </div>
             <div class="more-link"><span>Подробнее</span></div>
           </div>
-          <div class="all-offers" @click="navigateTo('/promotions')">Смотреть <br />все акции</div>
+          <NuxtLink class="all-offers" to="/promotions">Смотреть <br />все акции</NuxtLink>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
+</script>
 
 <style scoped>
 .offers {

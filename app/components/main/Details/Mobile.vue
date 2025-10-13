@@ -35,11 +35,13 @@
           </div>
         </div>
 
-        <button class="details-btn">Узнать подробнее</button>
+        <button class="details-btn" @click="navigateTo('/about')">Узнать подробнее</button>
       </div>
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .details-mobile {

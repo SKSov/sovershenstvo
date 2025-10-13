@@ -4,14 +4,10 @@
       <div class="grid">
         <div class="left">
           <div class="title">
-            Предоставляем <br />
-            пенсионерам <br />
-            скидку на услуги
+            Скидка 50% <br />
+            на чистку зубов
           </div>
-          <div class="subtitle">
-            30% при предъявлении <br />
-            пенсионного удостоверения
-          </div>
+          <div class="subtitle">Осмотр и профессиональная чистка зубов</div>
           <div class="info">
             <div class="item">
               <TherapyHeroIconsSmiles />
@@ -82,7 +78,7 @@ function openFeedbackModal() {
 .left {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .title {
@@ -95,7 +91,6 @@ function openFeedbackModal() {
 }
 
 .subtitle {
-  margin-top: 20px;
   color: #1e1e1e;
   font-family: Inter;
   font-size: 30px;

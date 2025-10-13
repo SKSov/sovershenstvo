@@ -16,12 +16,14 @@
             <p>Исправить прикус и сделать художественную реставрацию винирами</p>
             <p>Восстановить зубы различными ортопедическими конструкциями</p>
           </div>
-          <button class="doctors-btn">Полный перечень услуг</button>
+          <button class="doctors-btn" @click="navigateTo('/offers')">Полный перечень услуг</button>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .doctors {

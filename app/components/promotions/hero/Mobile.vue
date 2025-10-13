@@ -2,14 +2,10 @@
   <section class="promo-hero-mobile">
     <div class="container">
       <div class="title">
-        Предоставляем <br />
-        пенсионерам <br />
-        скидку на услуги
+        Скидка 50% <br />
+        на чистку зубов
       </div>
-      <div class="subtitle">
-        30% при предъявлении <br />
-        пенсионного удостоверения
-      </div>
+      <div class="subtitle">Осмотр и профессиональная чистка зубов</div>
 
       <div class="image-wrap">
         <img src="/images/page-promotions/hero.png" alt="promotions" />

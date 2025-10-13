@@ -32,7 +32,7 @@
           @swiper="onSwiper"
         >
           <SwiperSlide v-for="(card, index) in cards" :key="index">
-            <article class="offer-card" :class="card.variant">
+            <article class="offer-card" :class="card.variant" @click="openFeedbackModal">
               <img v-if="card.image" class="card-image" :src="card.image" alt="Offer" />
               <div class="card-content" :class="{ 'on-image': !!card.image }">
                 <div class="badge" :class="{ outline: card.badgeOutline }">Акция</div>
@@ -48,7 +48,7 @@
             </article>
           </SwiperSlide>
           <SwiperSlide>
-            <article class="offer-card cta">
+            <article class="offer-card cta" @click="navigateTo('/promotions')">
               <div class="cta-body">
                 <div class="cta-text">Смотреть<br />все акции</div>
               </div>
@@ -116,6 +116,12 @@ function scrollNext() {
 function scrollPrev() {
   if (swiperInstance && swiperInstance.activeIndex > 0)
     swiperInstance.slideTo(swiperInstance.activeIndex - 1, 600)
+}
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
 }
 </script>
 

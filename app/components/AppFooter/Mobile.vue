@@ -13,7 +13,7 @@
               ул. Терновского, 132
             </p>
             <p :class="{ active: selectedAddress === 3 }" @click="selectedAddress = 3">
-              ул. Ленина, 20
+              ул. Терновского, 220
             </p>
           </div>
         </div>
@@ -26,17 +26,37 @@
               <AppFooterIconsCall style="flex-shrink: 0" /><span>95-10-49 | 20 38 78</span>
             </div>
             <div class="row">
-              <AppFooterIconsCall style="flex-shrink: 0" /><span>+7 (8412) 95-10-49</span>
+              <AppFooterIconsCall />
+              <p
+                v-if="selectedAddress === 1"
+                style="display: flex; flex-direction: column; gap: 5px"
+              >
+                <span>+7 (8412) 95-10-49</span>
+                <span>+7 (8412) 30-12-45</span>
+              </p>
+              <span v-if="selectedAddress === 2">+7 (8412) 250 002</span>
+              <p
+                v-if="selectedAddress === 3"
+                style="display: flex; flex-direction: column; gap: 5px"
+              >
+                <span>+7 (8412) 20 38 78</span>
+                <span>+7 (8412) 30 46 15</span>
+              </p>
             </div>
             <div class="row">
-              <AppFooterIconsMail style="flex-shrink: 0" /><span>sovershenstvo@pochta.ru</span>
+              <AppFooterIconsMail style="flex-shrink: 0" /><a
+                style="color: inherit"
+                href="mailto:premium-stoma@mail.ru"
+                target="_blank"
+                >premium-stoma@mail.ru</a
+              >
             </div>
             <div class="row address">
               <AppFooterIconsLocation style="flex-shrink: 0" /><span
                 >г. Пенза<br />
                 <span v-if="selectedAddress === 1">ул. Терновского, 132</span>
                 <span v-if="selectedAddress === 2">ул. Глазунова, 1</span>
-                <span v-if="selectedAddress === 3">ул. Ленина, 20</span>
+                <span v-if="selectedAddress === 3">ул. Терновского, 220</span>
               </span>
             </div>
           </div>

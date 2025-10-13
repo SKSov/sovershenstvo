@@ -13,16 +13,40 @@
               ул. Терновского, 132
             </p>
             <p :class="{ active: selectedAddress === 3 }" @click="selectedAddress = 3">
-              ул. Ленина, 20
+              ул. Терновского, 220
             </p>
           </div>
           <div class="info">
             <div class="left">
               <p><AppFooterIconsCall /><span>95-10-49 | 20 38 78</span></p>
-              <p><AppFooterIconsCall /><span>+7 (8412) 95-10-49</span></p>
+              <div>
+                <AppFooterIconsCall />
+                <p
+                  v-if="selectedAddress === 1"
+                  style="display: flex; flex-direction: column; gap: 5px"
+                >
+                  <span>+7 (8412) 95-10-49</span>
+                  <span>+7 (8412) 30-12-45</span>
+                </p>
+                <span v-if="selectedAddress === 2">+7 (8412) 250 002</span>
+                <p
+                  v-if="selectedAddress === 3"
+                  style="display: flex; flex-direction: column; gap: 5px"
+                >
+                  <span>+7 (8412) 20 38 78</span>
+                  <span>+7 (8412) 30 46 15</span>
+                </p>
+              </div>
             </div>
             <div class="right">
-              <p><AppFooterIconsMail /><span>sovershenstvo@pochta.ru</span></p>
+              <p>
+                <AppFooterIconsMail /><a
+                  style="color: inherit"
+                  href="mailto:premium-stoma@mail.ru"
+                  target="_blank"
+                  >premium-stoma@mail.ru</a
+                >
+              </p>
               <p>
                 <AppFooterIconsLocation /><span>
                   г. Пенза <br />
@@ -123,7 +147,7 @@ function openTwoMap() {
 
 .grid {
   display: grid;
-  grid-template-columns: 618fr 1042fr;
+  grid-template-columns: 618fr 991fr;
   gap: 20px;
 }
 
@@ -163,7 +187,8 @@ function openTwoMap() {
   gap: 15px;
 }
 
-.left p {
+.left p,
+.left div {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -318,7 +343,7 @@ function openTwoMap() {
 
 .addresses {
   display: flex;
-  gap: 15px;
+  gap: 11px;
   margin-top: 15px;
 }
 
