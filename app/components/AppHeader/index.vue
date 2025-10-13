@@ -25,15 +25,15 @@
             <div class="info-label">Телефон</div>
             <div class="info-content">
               <AppHeaderIconsPhone />
-              <span class="gray">8 (383) </span>25-00-02
+              <span class="gray">+7 (8412) </span>95-10-49
               <div class="separator"></div>
-              <span class="gray">8 (383) </span>95-10-49
+              <span class="gray">+7 (8412) </span>20 38 78
             </div>
           </div>
 
           <div class="header-whatsapp">
-            <AppHeaderIconsWhatsapp />
-            <span>Написать в Whatsapp</span>
+            <!-- <AppHeaderIconsWhatsapp />
+            <span>Написать в Whatsapp</span> -->
           </div>
         </div>
 

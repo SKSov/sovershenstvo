@@ -54,16 +54,16 @@
           <div class="label">Телефон</div>
           <div class="row">
             <AppHeaderIconsPhone />
-            <a href="tel:+73832500002"><span class="gray">8 (8412)</span> 25-00-02</a>
+            <a href="tel:+73832500002"><span class="gray">+7 (8412)</span> 95-10-49</a>
             <span class="sep">|</span>
-            <a href="tel:+7383951049"><span class="gray">8 (8412)</span> 95-10-49</a>
+            <a href="tel:+7383951049"><span class="gray">+7 (8412)</span> 20-38-78</a>
           </div>
         </div>
 
-        <button class="m-menu__whatsapp" @click="goWhatsapp">
+        <!-- <button class="m-menu__whatsapp" @click="goWhatsapp">
           <AppHeaderIconsWhatsapp />
           <span>Написать в Whatsapp</span>
-        </button>
+        </button> -->
         <button class="m-menu__call" @click="openModal">Заказать звонок</button>
       </div>
     </transition>
@@ -75,7 +75,8 @@
 <script setup>
 import AppHeaderIconsPhone from '@/components/AppHeader/Icons/phone.vue'
 import AppHeaderIconsTimer from '@/components/AppHeader/Icons/timer.vue'
-import AppHeaderIconsWhatsapp from '@/components/AppHeader/Icons/whatsapp.vue'
+
+// import AppHeaderIconsWhatsapp from '@/components/AppHeader/Icons/whatsapp.vue'
 
 const isOpen = ref(false)
 const menuRef = ref(null)
@@ -92,11 +93,6 @@ function close() {
 function openModal() {
   close()
   open()
-}
-
-function goWhatsapp() {
-  // Placeholder to open WhatsApp chat; update with actual link when available
-  window.open('https://wa.me/79999999999', '_blank')
 }
 
 onMounted(() => {
