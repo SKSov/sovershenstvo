@@ -19,10 +19,6 @@
                 <span class="label">Цена в клинике:</span>
                 <span class="value value--our">{{ item.our_price }} ₽</span>
               </div>
-              <div class="price-line">
-                <span class="label">Цена по городу:</span>
-                <span class="value">{{ item.price }} ₽</span>
-              </div>
             </div>
           </div>
         </div>

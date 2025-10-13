@@ -2,7 +2,7 @@
   <section class="licenses">
     <div class="container">
       <div class="licenses-header">
-        <h2 class="licenses-title">Лицезии</h2>
+        <h2 class="licenses-title">Сертификаты</h2>
         <div class="licenses-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
             <ArrowLeft style="width: 41px; height: 41px" class="icon" />
@@ -35,7 +35,14 @@
           <SwiperSlide v-for="(src, index) in images" :key="index">
             <article class="slide">
               <div class="image-wrap">
-                <img :src="src" alt="Лицензия" class="slide-image" loading="lazy" />
+                <NuxtImg
+                  :src="src"
+                  quality="80"
+                  alt="Сертификат"
+                  class="slide-image"
+                  loading="lazy"
+                  :img-attrs="{ style: 'width:100%;height:100%;object-fit:cover;display:block' }"
+                />
               </div>
             </article>
           </SwiperSlide>
@@ -53,7 +60,7 @@ import 'swiper/css/free-mode'
 import ArrowLeft from './Icons/arrowLeft.vue'
 import ArrowRight from './Icons/arrowRight.vue'
 
-const images = Array.from({ length: 7 }, (_, i) => `/images/licenses/${i + 1}.png`)
+const images = Array.from({ length: 10 }, (_, i) => `/images/licenses/${i + 1}.jpg`)
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null

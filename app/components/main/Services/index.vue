@@ -7,7 +7,9 @@
         <div class="service-card">
           <div class="service-content">
             <h3 class="service-name">Вылечить кариес <br />и его осложнения</h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/therapy/tooth-decay"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>

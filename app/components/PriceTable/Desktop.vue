@@ -9,7 +9,6 @@
           <div></div>
           <div></div>
           <div class="price-head-label-our">Цена в клинике:</div>
-          <div class="price-head-label">Цена по городу:</div>
         </div>
 
         <div
@@ -27,7 +26,6 @@
             </div>
             <div class="price-col price-col--service">{{ item.title }}</div>
             <div class="price-col price-col--our-price">{{ item.our_price }} ₽</div>
-            <div class="price-col price-col--price">{{ item.price }} ₽</div>
           </div>
         </div>
       </div>
@@ -89,7 +87,7 @@ defineProps({
 .price-head,
 .price-row {
   display: grid;
-  grid-template-columns: 1.6fr 3.2fr 1.4fr 1.4fr;
+  grid-template-columns: 1.6fr 3.2fr 1.4fr;
   column-gap: 24px;
   align-items: center;
 }
@@ -147,7 +145,7 @@ defineProps({
 }
 
 .price-col--service {
-  max-width: 553px;
+  max-width: 800px;
   color: #000;
   font-family: Inter;
   font-size: 30px;

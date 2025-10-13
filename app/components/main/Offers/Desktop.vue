@@ -12,8 +12,8 @@
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
-              <div class="title">Скидка 10%</div>
-              <div class="subtitle">на отбеливание зубов</div>
+              <div class="title">Скидка 50%</div>
+              <div class="subtitle">на чистку зубов</div>
             </div>
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
@@ -23,35 +23,34 @@
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
-              <div class="title">Скидка 10%</div>
-              <div class="subtitle">на отбеливание зубов</div>
+              <div class="title">Скидка 50%</div>
+              <div class="subtitle">на компьютерную томографию</div>
             </div>
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
         </div>
         <div class="card bottom">
           <div class="badge">Акция</div>
-          <div class="title">
-            Полный стоматологический <br />
-            осмотр за 0 ₽
-          </div>
+          <div class="title">Бесплатный прием врача хирурга-имплантолога</div>
           <div class="more-link"><span>Подробнее</span></div>
         </div>
         <div class="with-button">
           <div class="card bottom">
             <div class="badge">Акция</div>
             <div class="title">
-              Приведи друга <br />
-              и получи 500 ₽
+              Имплант зуба за <br />
+              45 000 рублей
             </div>
             <div class="more-link"><span>Подробнее</span></div>
           </div>
-          <div class="all-offers">Смотреть <br />все акции</div>
+          <div class="all-offers" @click="navigateTo('/promotions')">Смотреть <br />все акции</div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup></script>
 
 <style scoped>
 .offers {

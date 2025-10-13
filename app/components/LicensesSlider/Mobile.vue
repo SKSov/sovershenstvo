@@ -2,7 +2,7 @@
   <section class="licenses-mobile">
     <div class="container">
       <div class="header">
-        <h2 class="title">Лицензии</h2>
+        <h2 class="title">Сертификаты</h2>
         <div class="nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
             <ArrowLeft class="icon" />
