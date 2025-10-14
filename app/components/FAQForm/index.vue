@@ -1,6 +1,6 @@
 <template>
-  <FAQFormDesktop v-if="!isMobile" :faqs="props.faqs" />
-  <FAQFormMobile v-else :faqs="props.faqs" />
+  <FAQFormDesktop v-if="!isMobile" :faqs="props.faqs" :title="props.title" />
+  <FAQFormMobile v-else :faqs="props.faqs" :title="props.title" />
 </template>
 
 <script setup>
@@ -10,6 +10,10 @@ const props = defineProps({
   faqs: {
     type: Array,
     default: () => [],
+  },
+  title: {
+    type: String,
+    default: 'Часто задаваемые <br />вопросы о лечении зубов',
   },
 })
 

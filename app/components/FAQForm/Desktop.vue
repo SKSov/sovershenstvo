@@ -1,7 +1,7 @@
 <template>
   <section class="faq-form">
     <div class="container">
-      <h2 class="faq-form-title">Часто задаваемые <br />вопросы о лечении зубов</h2>
+      <h2 class="faq-form-title" v-html="title"></h2>
       <div class="grid">
         <div class="faq-container">
           <div
@@ -96,6 +96,10 @@ const props = defineProps({
   faqs: {
     type: Array,
     default: () => [],
+  },
+  title: {
+    type: String,
+    default: 'Часто задаваемые <br />вопросы о лечении зубов',
   },
 })
 

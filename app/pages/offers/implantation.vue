@@ -10,17 +10,21 @@
       <OffersDentalTreatmentTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <FAQForm />
+      <FAQForm :faqs="faqs" />
     </main>
     <AppFooter />
   </div>
 </template>
 
 <script setup>
+import { useFaq } from '~/composables/offers/Implantation/useFaq'
+
+const faqs = await useFaq()
+
 const priceTableData = await usePriceTable()
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
   { path: '/offers', name: 'Услуги' },
-  { path: '/offers/dental-treatment', name: 'Лечение зубов' },
+  { path: '/offers/implantation', name: 'Имплантация' },
 ]
 </script>
