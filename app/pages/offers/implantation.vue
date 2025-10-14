@@ -3,14 +3,14 @@
     <AppHeader />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
-      <OffersDentalTreatmentHero />
+      <OffersImplantationHero />
       <PriceTable :data="priceTableData" :is-collapsed="true" />
       <AboutMission />
       <FeedbackForm />
-      <OffersDentalTreatmentTextBlock />
+      <OffersImplantationTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <FAQForm :faqs="faqs" />
+      <FAQForm :faqs="faqs" :title="faqTitle" />
     </main>
     <AppFooter />
   </div>
@@ -20,6 +20,7 @@
 import { useFaq } from '~/composables/offers/Implantation/useFaq'
 
 const faqs = await useFaq()
+const faqTitle = 'Часто задаваемые <br />вопросы об имплантации'
 
 const priceTableData = await usePriceTable()
 const breadcrumbs = [

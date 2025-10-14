@@ -3,11 +3,11 @@
     <AppHeader />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
-      <OffersDentalTreatmentHero />
+      <OffersToothWhiteningHero />
       <PriceTable :data="priceTableData" :is-collapsed="true" />
       <AboutMission />
       <FeedbackForm />
-      <OffersDentalTreatmentTextBlock />
+      <OffersToothWhiteningTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
       <FAQForm :faqs="faqs" />

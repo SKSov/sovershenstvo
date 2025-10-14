@@ -3,8 +3,11 @@
     <div class="container">
       <div class="grid">
         <div class="left">
-          <div class="title">Лечение кариеса, <br />пульпита, периодонтита</div>
-          <div class="subtitle">по доступной цене: от <span class="bold">2 700 ₽</span></div>
+          <div class="title">
+            Установка импланта <br />
+            нового поколения
+          </div>
+          <div class="subtitle">по доступной цене: от <span class="bold">45 000 ₽</span></div>
           <div class="info">
             <div class="item">
               <TherapyHeroIconsSmiles />
