@@ -10,7 +10,7 @@
       <OffersToothRemovalTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <FAQForm :faqs="faqs" />
+      <FAQForm :faqs="faqs" :title="faqTitle" />
     </main>
     <AppFooter />
   </div>
@@ -20,6 +20,7 @@
 import { useFaq } from '~/composables/offers/ToothRemoval/useFaq'
 
 const faqs = await useFaq()
+const faqTitle = 'Часто задаваемые <br />вопросы об удалении зуба'
 
 const priceTableData = await usePriceTable()
 const breadcrumbs = [

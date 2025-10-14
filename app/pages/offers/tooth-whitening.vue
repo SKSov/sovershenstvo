@@ -10,7 +10,7 @@
       <OffersToothWhiteningTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
-      <FAQForm :faqs="faqs" />
+      <FAQForm :faqs="faqs" :title="faqTitle" />
     </main>
     <AppFooter />
   </div>
@@ -20,6 +20,7 @@
 import { useFaq } from '~/composables/offers/ToothWhitening/useFaq'
 
 const faqs = await useFaq()
+const faqTitle = 'Часто задаваемые <br />вопросы о профессиональной чистке и отбеливании'
 
 const priceTableData = await usePriceTable()
 const breadcrumbs = [

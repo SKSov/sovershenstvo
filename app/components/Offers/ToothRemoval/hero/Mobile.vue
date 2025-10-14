@@ -1,11 +1,8 @@
 <template>
   <section class="therapy-hero-mobile">
     <div class="container">
-      <div class="title">Лечение кариеса <br />по доступной цене</div>
-      <div class="subtitle">
-        Гарантия на выполненные работы<br />
-        Цена от <span class="bold">15 000 ₽</span>
-      </div>
+      <div class="title">Удаление зуба <br />любой сложности</div>
+      <div class="subtitle">Цена от <span class="bold">1 800 ₽</span></div>
 
       <div class="image-wrap">
         <img src="/images/page-therapy/page-tooth-decay/hero.png" alt="therapy" />

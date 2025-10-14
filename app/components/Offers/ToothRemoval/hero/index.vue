@@ -1,6 +1,6 @@
 <template>
-  <OffersDentalTreatmentHeroDesktop v-if="!isMobile" />
-  <OffersDentalTreatmentHeroMobile v-else />
+  <OffersToothRemovalHeroDesktop v-if="!isMobile" />
+  <OffersToothRemovalHeroMobile v-else />
 </template>
 
 <script setup>

@@ -2,10 +2,7 @@
   <section class="therapy-hero-mobile">
     <div class="container">
       <div class="title">Установка импланта <br />нового поколения</div>
-      <div class="subtitle">
-        Гарантия на выполненные работы<br />
-        Цена от <span class="bold">45 000 ₽</span>
-      </div>
+      <div class="subtitle">Цена от <span class="bold">45 000 ₽</span></div>
 
       <div class="image-wrap">
         <img src="/images/page-therapy/page-tooth-decay/hero.png" alt="therapy" />

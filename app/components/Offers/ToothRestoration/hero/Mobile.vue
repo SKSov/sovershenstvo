@@ -2,10 +2,7 @@
   <section class="therapy-hero-mobile">
     <div class="container">
       <div class="title">Установление коронки и <br />протезов</div>
-      <div class="subtitle">
-        Гарантия на выполненные работы<br />
-        Цена от <span class="bold">X ₽</span>
-      </div>
+      <div class="subtitle">Цена от <span class="bold">X ₽</span></div>
 
       <div class="image-wrap">
         <img src="/images/page-therapy/page-tooth-decay/hero.png" alt="therapy" />
