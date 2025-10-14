@@ -33,7 +33,7 @@
           </div>
           <div class="btns">
             <button class="therapy-btn" @click="openFeedbackModal">Записаться на прием</button>
-            <UIButton variant="secondary">Оставить отзыв</UIButton>
+            <UIButton variant="secondary" @click="leaveReview">Оставить отзыв</UIButton>
           </div>
         </div>
         <div class="img">
@@ -49,6 +49,10 @@ const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
   open()
+}
+
+function leaveReview() {
+  window.open('https://yandex.ru/profile/1050283619?lang=ru', '_blank')
 }
 </script>
 
