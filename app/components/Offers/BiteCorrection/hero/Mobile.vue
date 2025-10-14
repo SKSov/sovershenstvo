@@ -1,10 +1,10 @@
 <template>
   <section class="therapy-hero-mobile">
     <div class="container">
-      <div class="title">Лечение кариеса <br />по доступной цене</div>
+      <div class="title">Исправление прикуса <br />зубов</div>
       <div class="subtitle">
         Гарантия на выполненные работы<br />
-        Цена от <span class="bold">15 000 ₽</span>
+        Цена от <span class="bold">X ₽</span>
       </div>
 
       <div class="image-wrap">

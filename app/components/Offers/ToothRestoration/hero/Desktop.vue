@@ -3,8 +3,8 @@
     <div class="container">
       <div class="grid">
         <div class="left">
-          <div class="title">Лечение кариеса, <br />пульпита, периодонтита</div>
-          <div class="subtitle">по доступной цене: от <span class="bold">2 700 ₽</span></div>
+          <div class="title">Установление коронки и <br />протезов</div>
+          <div class="subtitle">по доступной цене: от <span class="bold">X ₽</span></div>
           <div class="info">
             <div class="item">
               <TherapyHeroIconsSmiles />
