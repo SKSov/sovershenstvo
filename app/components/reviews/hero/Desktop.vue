@@ -84,7 +84,7 @@ function openFeedbackModal() {
 .left {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .title {
@@ -97,7 +97,6 @@ function openFeedbackModal() {
 }
 
 .subtitle {
-  margin-top: 20px;
   color: #1e1e1e;
   font-family: Inter;
   font-size: 30px;
