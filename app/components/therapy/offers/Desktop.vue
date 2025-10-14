@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="offers-title">Услуги</h2>
       <div class="grid">
-        <NuxtLink to="/offers/therapy/tooth-decay" class="item">
+        <NuxtLink to="/offers/tooth-decay" class="item">
           <div class="top">
             <div class="text">
               <div class="topic">Лечение кариеса</div>

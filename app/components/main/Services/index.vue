@@ -7,7 +7,7 @@
         <div class="service-card">
           <div class="service-content">
             <h3 class="service-name">Вылечить кариес <br />и его осложнения</h3>
-            <NuxtLink class="service-link" to="/offers/therapy/tooth-decay"
+            <NuxtLink class="service-link" to="/offers/tooth-decay"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
           </div>
@@ -19,7 +19,9 @@
             <h3 class="service-name">
               Установить имплант нового <br />поколения быстро и без боли
             </h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/implantation"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>
@@ -29,7 +31,9 @@
             <h3 class="service-name">
               Исправить прикус <br />и сделать художественную <br />реставрацию винирами
             </h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/bite-correction"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>
@@ -40,7 +44,9 @@
               Восстановить зубы различными <br />
               ортопедическими конструкциями
             </h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/tooth-restoration"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>
@@ -48,7 +54,9 @@
         <div class="service-card">
           <div class="service-content">
             <h3 class="service-name">Удалить зуб <br />любой сложности</h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/tooth-removal"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>
@@ -56,7 +64,9 @@
         <div class="service-card">
           <div class="service-content">
             <h3 class="service-name">Провести профессиональную чистку и <br />отбеливание зубов</h3>
-            <a href="#" class="service-link"><span>Подробнее</span> <MainServicesArrow /></a>
+            <NuxtLink class="service-link" to="/offers/tooth-whitening"
+              ><span>Подробнее</span> <MainServicesArrow
+            /></NuxtLink>
           </div>
           <div class="service-line"></div>
         </div>

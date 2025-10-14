@@ -82,7 +82,7 @@ const items = [
     text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
     price: 'от 15 000 ₽',
     icon: 'TherapyOffersIconsFirst',
-    link: '/offers/therapy/tooth-decay',
+    link: '/offers/tooth-decay',
   },
   {
     topic: 'Лечение кариеса',
