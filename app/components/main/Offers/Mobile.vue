@@ -75,21 +75,21 @@ let swiperInstance = null
 const cards = [
   {
     image: '/images/offers/1.png',
-    title: 'Скидка 10%',
-    subtitle: 'на отбеливание зубов',
+    title: 'Скидка 50%',
+    subtitle: 'на чистку зубов',
     more: true,
     variant: 'image-card',
   },
   {
-    image: '/images/offers/1.png',
-    title: 'Скидка 10%',
-    subtitle: 'на отбеливание зубов',
+    image: '/images/offers/2.jpg',
+    title: 'Скидка 50%',
+    subtitle: 'на компьютерную томографию',
     more: true,
     variant: 'image-card',
   },
   {
     image: null,
-    title: 'Полный стоматологический<br />осмотр за 0 ₽',
+    title: 'Бесплатный прием врача<br />хирурга-имплантолога',
     subtitle: '',
     more: false,
     variant: 'gradient-card',
@@ -97,7 +97,7 @@ const cards = [
   },
   {
     image: null,
-    title: 'Приведи друга<br />и получи 500 ₽',
+    title: 'Имплант зуба за <br />45 000 рублей',
     subtitle: '',
     more: false,
     variant: 'gradient-card',
@@ -192,8 +192,8 @@ function openFeedbackModal() {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 20px;
+  gap: 20px;
 }
 
 .offer-card.image-card .card-content.on-image {
@@ -222,7 +222,7 @@ function openFeedbackModal() {
 .card-text .title {
   color: #fff;
   font-family: Inter;
-  font-size: 30px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
