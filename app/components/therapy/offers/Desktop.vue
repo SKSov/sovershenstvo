@@ -3,88 +3,43 @@
     <div class="container">
       <h2 class="offers-title">Услуги</h2>
       <div class="grid">
-        <NuxtLink to="/offers/tooth-decay" class="item">
+        <NuxtLink v-for="(item, index) in items" :key="index" :to="item.link || '/'" class="item">
           <div class="top">
             <div class="text">
-              <div class="topic">Лечение кариеса</div>
-              <p>Рыбатекст используется дизайнерами, проектировщиками и фронтендерами</p>
+              <div class="topic">{{ item.topic }}</div>
+              <p>{{ item.text }}</p>
             </div>
-            <TherapyOffersIconsFirst class="icon" />
+            <component :is="icons[item.icon]" class="icon" />
           </div>
           <div class="bottom">
-            <p>от 15 000 ₽</p>
+            <p>{{ item.price }}</p>
             <TherapyOffersIconsArrow />
           </div>
         </NuxtLink>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Имплантация</div>
-              <p>Установка импланта нового поколения без боли</p>
-            </div>
-            <TherapyOffersIconsThird class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 45 000 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Исправление прикуса</div>
-              <p>Установка брекетов и виниров</p>
-            </div>
-            <TherapyOffersIconsFourth class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 15 000 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Установление коронки и протезов</div>
-              <p>А также других ортопедических конструкций</p>
-            </div>
-            <TherapyOffersIconsFifth class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 12 000 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Удаление зуба</div>
-              <p>Любая сложность операции</p>
-            </div>
-            <TherapyOffersIconsSixth class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 1 800 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
-        <div class="item">
-          <div class="top">
-            <div class="text">
-              <div class="topic">Профессиональная чистка и отбеливание</div>
-              <p>Эстетические и профилактические процедуры</p>
-            </div>
-            <TherapyOffersIconsSecond class="icon" />
-          </div>
-          <div class="bottom">
-            <p>от 7 500 ₽</p>
-            <TherapyOffersIconsArrow />
-          </div>
-        </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import TherapyOffersIconsFifth from '@/components/therapy/offers/Icons/fifth.vue'
+import TherapyOffersIconsFirst from '@/components/therapy/offers/Icons/first.vue'
+import TherapyOffersIconsFourth from '@/components/therapy/offers/Icons/fourth.vue'
+import TherapyOffersIconsSecond from '@/components/therapy/offers/Icons/second.vue'
+import TherapyOffersIconsSixth from '@/components/therapy/offers/Icons/sixth.vue'
+import TherapyOffersIconsThird from '@/components/therapy/offers/Icons/third.vue'
+
+const icons = {
+  TherapyOffersIconsFirst,
+  TherapyOffersIconsSecond,
+  TherapyOffersIconsThird,
+  TherapyOffersIconsFourth,
+  TherapyOffersIconsFifth,
+  TherapyOffersIconsSixth,
+}
+
+const items = await useOffers()
+</script>
 
 <style scoped>
 .offers {

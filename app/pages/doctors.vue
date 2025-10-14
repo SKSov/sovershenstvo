@@ -3,7 +3,7 @@
     <AppHeader />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
-      <DoctorsSlider />
+      <DoctorsSlider :is-doctors-page="true" />
       <AboutMission />
       <FeedbackForm />
       <MainUnique />

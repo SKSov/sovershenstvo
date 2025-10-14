@@ -32,32 +32,19 @@
           @swiper="onSwiper"
         >
           <SwiperSlide v-for="(item, index) in items" :key="index">
-            <NuxtLink v-if="item.link" :to="item.link" class="card">
+            <NuxtLink :to="item.link || '/'" class="card">
               <div class="top">
                 <div class="text">
                   <div class="topic">{{ item.topic }}</div>
                   <p>{{ item.text }}</p>
                 </div>
-                <component :is="item.icon" class="icon" />
+                <component :is="icons[item.icon]" class="icon" />
               </div>
               <div class="bottom">
                 <p>{{ item.price }}</p>
                 <TherapyOffersIconsArrow />
               </div>
             </NuxtLink>
-            <div v-else class="card">
-              <div class="top">
-                <div class="text">
-                  <div class="topic">{{ item.topic }}</div>
-                  <p>{{ item.text }}</p>
-                </div>
-                <component :is="item.icon" class="icon" />
-              </div>
-              <div class="bottom">
-                <p>{{ item.price }}</p>
-                <TherapyOffersIconsArrow />
-              </div>
-            </div>
           </SwiperSlide>
         </Swiper>
       </ClientOnly>
@@ -72,49 +59,26 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import ArrowLeft from '@/components/CommentsSlider/Icons/arrowLeft.vue'
 import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
+import TherapyOffersIconsFifth from '@/components/therapy/offers/Icons/fifth.vue'
+import TherapyOffersIconsFirst from '@/components/therapy/offers/Icons/first.vue'
+import TherapyOffersIconsFourth from '@/components/therapy/offers/Icons/fourth.vue'
+import TherapyOffersIconsSecond from '@/components/therapy/offers/Icons/second.vue'
+import TherapyOffersIconsSixth from '@/components/therapy/offers/Icons/sixth.vue'
+import TherapyOffersIconsThird from '@/components/therapy/offers/Icons/third.vue'
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
 
-const items = [
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsFirst',
-    link: '/offers/tooth-decay',
-  },
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsSecond',
-  },
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsThird',
-  },
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsFourth',
-  },
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsFifth',
-  },
-  {
-    topic: 'Лечение кариеса',
-    text: 'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами',
-    price: 'от 15 000 ₽',
-    icon: 'TherapyOffersIconsSixth',
-  },
-]
+const icons = {
+  TherapyOffersIconsFirst,
+  TherapyOffersIconsSecond,
+  TherapyOffersIconsThird,
+  TherapyOffersIconsFourth,
+  TherapyOffersIconsFifth,
+  TherapyOffersIconsSixth,
+}
+
+const items = await useOffers()
 
 function onSwiper(instance) {
   swiperInstance = instance
@@ -193,7 +157,7 @@ function scrollPrev() {
 }
 
 .text {
-  max-width: 360px;
+  max-width: 70%;
 }
 
 .topic {

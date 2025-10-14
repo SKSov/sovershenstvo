@@ -1,10 +1,17 @@
 <template>
-  <DoctorsSliderDesktop v-if="!isMobile" />
-  <DoctorsSliderMobile v-else />
+  <DoctorsSliderDesktop v-if="!isMobile" :is-doctors-page="isDoctorsPage" />
+  <DoctorsSliderMobile v-else :is-doctors-page="isDoctorsPage" />
 </template>
 
 <script setup>
 const isMobile = ref(false)
+
+defineProps({
+  isDoctorsPage: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 onMounted(() => {
   const mq = window.matchMedia('(max-width: 768px)')

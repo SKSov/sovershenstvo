@@ -80,7 +80,12 @@
         </div>
       </ClientOnly>
 
-      <UIButton style="margin-top: 40px" @click="navigateTo('/doctors')">Все специалисты</UIButton>
+      <UIButton v-if="!isDoctorsPage" style="margin-top: 40px" @click="navigateTo('/doctors')"
+        >Все специалисты</UIButton
+      >
+      <UIButton v-if="isDoctorsPage" style="margin-top: 40px" @click="openFeedbackModal"
+        >Записаться на прием</UIButton
+      >
     </div>
   </section>
 </template>
@@ -90,6 +95,19 @@ import { FreeMode, Keyboard, Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/free-mode'
+
+defineProps({
+  isDoctorsPage: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const { open } = useFeedbackModal()
+
+function openFeedbackModal() {
+  open()
+}
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 
