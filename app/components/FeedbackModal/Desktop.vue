@@ -15,8 +15,8 @@
         <div class="modal-content">
           <img src="/images/feedback-modal.png" alt="feedbackModal" class="modal-image" />
           <div class="title">
-            Закрепите за спец. <br />
-            предложение,
+            Получите специальное <br />
+            предложение
           </div>
           <div class="subtitle">
             мы свяжемся с Вами и запишем <br />
