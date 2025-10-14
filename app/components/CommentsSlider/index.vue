@@ -1,9 +1,10 @@
 <template>
-  <CommentsSliderDesktop v-if="!isMobile" />
-  <CommentsSliderMobile v-else />
+  <CommentsSliderDesktop v-if="!isMobile" :comments="comments" />
+  <CommentsSliderMobile v-else :comments="comments" />
 </template>
 
 <script setup>
+const comments = await useCommentSlider()
 const isMobile = ref(false)
 
 onMounted(() => {

@@ -45,7 +45,7 @@
                 <p class="slide-text">{{ item.text }}</p>
               </div>
               <div class="slide-user">
-                <div class="avatar" />
+                <UserIcon class="avatar" />
                 <div class="user-name">{{ item.author }}</div>
               </div>
             </article>
@@ -65,27 +65,17 @@ import ArrowLeft from '@/components/CommentsSlider/Icons/arrowLeft.vue'
 import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
 import Quote from '@/components/CommentsSlider/Icons/quote.vue'
 import Star from '@/components/CommentsSlider/Icons/star.vue'
+import UserIcon from './Icons/user.vue'
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
 
-const comments = [
-  {
-    date: '09.04.2023',
-    author: 'Иван Иванов',
-    text: 'уже почти 2 месяца хожу сюда, но у Соколенко Юлии была на занятиях впервые, и я была очень удивлена,мне все так понравилась, была на зумбе у нее, все классно и песни и энергетика, потом на стречинге, блиин она так подготовилась, даже обдеялом накрыла🥹 спасибо Юлии большое, наполнила энергией 🫶🏻❤️ dsadsadas sadsadas sadsadsa dfdsfds',
+defineProps({
+  comments: {
+    type: Array,
+    required: true,
   },
-  {
-    date: '09.04.2023',
-    author: 'Петр Маралов',
-    text: 'Была на лечении кариеса, все аккуратно и без боли. Подробно рассказали про дальнейший уход. Рекомендую друзьям и знакомым!',
-  },
-  {
-    date: '09.04.2023',
-    author: 'Сергей Кузнецов',
-    text: 'Удаляли зуб мудрости — всё быстро и спокойно, на следующий день уже чувствовал себя нормально. Спасибо доктору!',
-  },
-]
+})
 
 function onSwiper(instance) {
   swiperInstance = instance
@@ -200,20 +190,20 @@ function scrollPrev() {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  white-space: pre-line;
 }
 
 .slide-user {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   margin-top: 16px;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: #d9d9d9;
+  color: #bdbdbd;
   flex-shrink: 0;
 }
 
