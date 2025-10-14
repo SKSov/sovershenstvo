@@ -10,7 +10,7 @@
       <CommentsSlider />
       <FeedbackForm />
       <LicensesSlider />
-      <FAQForm v-if="!isMobile" />
+      <FAQForm />
     </main>
     <AppFooter />
   </div>
