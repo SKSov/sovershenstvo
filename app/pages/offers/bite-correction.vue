@@ -3,11 +3,11 @@
     <AppHeader />
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
-      <TherapyToothDecayHero />
+      <OffersDentalTreatmentHero />
       <PriceTable :data="priceTableData" />
       <AboutMission />
       <FeedbackForm />
-      <TherapyToothDecayTextBlock />
+      <OffersDentalTreatmentTextBlock />
       <DoctorsSlider />
       <CommentsSlider />
       <FAQForm />
@@ -21,6 +21,6 @@ const priceTableData = await usePriceTable()
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
   { path: '/offers', name: 'Услуги' },
-  { path: '/offers/tooth-decay', name: 'Лечение кариеса' },
+  { path: '/offers/dental-treatment', name: 'Лечение зубов' },
 ]
 </script>
