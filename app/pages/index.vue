@@ -21,4 +21,19 @@
 
 <script setup>
 const pricingData = await usePriceTable()
+
+onMounted(async () => {
+  const response = await fetch('http://89.208.113.60/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      token: 'stomatologpnz', // токен сайта
+      name: 'test',
+      phone: 'test',
+    }),
+  })
+
+  const result = await response.json()
+  console.log(result)
+})
 </script>
