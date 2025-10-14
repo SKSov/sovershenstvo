@@ -95,8 +95,8 @@
         <div class="line"></div>
 
         <div class="policies">
-          <a href="#">Политика конфиденциальности</a>
-          <a href="#">Пользовательское соглашение</a>
+          <a href="/policy.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+          <a href="/policy.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
           <p>{{ new Date().getFullYear() }}. Все права защищены.</p>
         </div>
       </footer>
