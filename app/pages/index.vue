@@ -23,7 +23,7 @@
 const pricingData = await usePriceTable()
 
 onMounted(async () => {
-  const response = await fetch('http://89.208.113.60/send', {
+  const response = await fetch('http://89.208.113.60:3000/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
