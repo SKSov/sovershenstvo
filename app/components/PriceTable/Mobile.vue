@@ -26,7 +26,9 @@
 
       <div class="price-button">
         <button class="price-btn" @click="openFeedbackModal">Записаться на прием</button>
-        <UIButton variant="secondary" @click="navigateTo('/pricing')">Прайс-лист</UIButton>
+        <UIButton v-if="isCollapsed" variant="secondary" @click="navigateTo('/pricing')"
+          >Прайс-лист</UIButton
+        >
       </div>
     </div>
   </section>

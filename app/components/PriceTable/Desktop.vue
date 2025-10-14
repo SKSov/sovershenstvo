@@ -32,7 +32,11 @@
 
       <div class="price-button">
         <button class="price-btn" @click="openFeedbackModal">Записаться на прием</button>
-        <UIButton variant="secondary" style="margin-left: 24px" @click="navigateTo('/pricing')"
+        <UIButton
+          v-if="isCollapsed"
+          variant="secondary"
+          style="margin-left: 24px"
+          @click="navigateTo('/pricing')"
           >Прайс-лист</UIButton
         >
       </div>
