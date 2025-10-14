@@ -6,193 +6,91 @@
         <UISelect v-model="selectedProduct" :options="products" />
         <UISelect v-model="selectedDoctor" :options="doctors" />
       </div>
-      <div class="cards-grid" :class="{ collapsed: !showMore }">
-        <div class="block">
+      <div class="cards-grid" :class="{ collapsed: !showMore && filteredReviews.length > 5 }">
+        <div v-for="(r, idx) in filteredReviews" :key="idx" class="block">
           <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/1.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
+            <UserIcon class="avatar" />
+            <p class="name">{{ r.author }}</p>
+            <p class="date">{{ r.date }}</p>
+            <div class="platform">{{ platformLabel(r.platform) }}</div>
             <ReviewsCardsStars style="flex-shrink: 0" />
           </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены. Для современного мира граница
-            обучения кадров, а также свежий взгляд на привычные вещи — безусловно открывает новые
-            горизонты для вывода текущих активов. Банальные, но неопровержимые выводы, а также
-            сторонники тоталитаризма в науке указаны как претенденты на роль ключевых факторов. В
-            рамках спецификации современных стандартов, сторонники тоталитаризма в науке являются
-            только методом политического участия и описаны максимально подробно. Идейные соображения
-            высшего порядка, а также курс на социально-ориентированный национальный проект выявляет
-            срочную потребность глубокомысленных рассуждений. Но базовые сценарии поведения
-            пользователей функционально разнесены на независимые элементы.
-          </div>
+          <div class="text">{{ r.text }}</div>
           <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
-            <div class="products">
-              <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
+            <div class="doctor">
+              Лечащий врач <span>{{ r.doctor }}</span>
             </div>
-          </div>
-        </div>
-        <div class="block">
-          <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/2.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
-          </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены. Для современного мира граница
-            обучения кадров, а также свежий взгляд на привычные вещи — безусловно открывает новые
-            горизонты для вывода текущих активов. Банальные, но неопровержимые выводы, а также
-            сторонники тоталитаризма в науке указаны как претенденты на роль ключевых факторов. В
-            рамках спецификации современных стандартов, сторонники тоталитаризма в науке являются
-            только методом политического участия и описаны максимально подробно. Идейные соображения
-            высшего порядка, а также курс на социально-ориентированный национальный проект выявляет
-            срочную потребность глубокомысленных рассуждений. Но базовые сценарии поведения
-            пользователей функционально разнесены на независимые элементы.
-          </div>
-          <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
             <div class="products">
               <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
-            </div>
-          </div>
-        </div>
-        <div class="block">
-          <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/3.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
-          </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены.
-          </div>
-          <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
-            <div class="products">
-              <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
-            </div>
-          </div>
-        </div>
-        <div class="block">
-          <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/4.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
-          </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены. Для современного мира граница
-            обучения кадров, а также свежий взгляд на привычные вещи — безусловно открывает новые
-            горизонты для вывода текущих активов. Банальные, но неопровержимые выводы, а также
-            сторонники тоталитаризма в науке указаны как претенденты на роль ключевых факторов.
-          </div>
-          <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
-            <div class="products">
-              <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
-            </div>
-          </div>
-        </div>
-        <div class="block">
-          <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/1.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
-          </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены. Для современного мира граница
-            обучения кадров, а также свежий взгляд на привычные вещи — безусловно открывает новые
-            горизонты для вывода текущих активов. Банальные, но неопровержимые выводы, а также
-            сторонники тоталитаризма в науке указаны как претенденты на роль ключевых факторов. В
-            рамках спецификации современных стандартов, сторонники тоталитаризма в науке являются
-            только методом политического участия и описаны максимально подробно. Идейные соображения
-            высшего порядка, а также курс на социально-ориентированный национальный проект выявляет
-            срочную потребность глубокомысленных рассуждений. Но базовые сценарии поведения
-            пользователей функционально разнесены на независимые элементы.
-          </div>
-          <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
-            <div class="products">
-              <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
-            </div>
-          </div>
-        </div>
-        <div class="block">
-          <div class="user">
-            <img class="avatar" src="/images/page-reviews/avatars/2.png" alt="avatar" />
-            <p class="name">Инкар Мухаметкан</p>
-            <p class="date">13.09.2023</p>
-            <div class="platform">Яндекс</div>
-            <ReviewsCardsStars />
-          </div>
-          <div class="text">
-            Являясь всего лишь частью общей картины, сделанные на базе интернет-аналитики выводы
-            лишь добавляют фракционных разногласий и разоблачены. Для современного мира граница
-            обучения кадров, а также свежий взгляд на привычные вещи — безусловно открывает новые
-            горизонты для вывода текущих активов. Банальные, но неопровержимые выводы, а также
-            сторонники тоталитаризма в науке указаны как претенденты на роль ключевых факторов. В
-            рамках спецификации современных стандартов, сторонники тоталитаризма в науке являются
-            только методом политического участия и описаны максимально подробно. Идейные соображения
-            высшего порядка, а также курс на социально-ориентированный национальный проект выявляет
-            срочную потребность глубокомысленных рассуждений. Но базовые сценарии поведения
-            пользователей функционально разнесены на независимые элементы.
-          </div>
-          <div class="info">
-            <div class="doctor">Лечащий врач <span>Калашников Денис Анатольевич</span></div>
-            <div class="products">
-              <p class="normal">Оказанные услуги</p>
-              <p>Лечение кариеса</p>
-              <p>Удаление зуба</p>
+              <p v-for="(s, si) in r.services" :key="si">{{ s }}</p>
             </div>
           </div>
         </div>
       </div>
-      <UIButton variant="secondary" class="show-more-btn" @click="showMore = !showMore">{{
-        showMore ? 'Скрыть' : 'Показать ещё'
-      }}</UIButton>
+      <UIButton
+        v-if="filteredReviews.length > 5"
+        variant="secondary"
+        class="show-more-btn"
+        @click="showMore = !showMore"
+      >
+        {{ showMore ? 'Скрыть' : 'Показать ещё' }}
+      </UIButton>
     </div>
   </section>
 </template>
 
 <script setup>
+import UserIcon from './user.vue'
+
+const reviews = await useReviews()
+
+// Build filter options
+const serviceSet = new Map()
+for (const r of reviews) {
+  for (const s of r.services || []) {
+    const key = String(s).toLowerCase()
+    if (!serviceSet.has(key)) serviceSet.set(key, s)
+  }
+}
+
 const products = ref([
   { value: 'all', label: 'Все услуги' },
-  { value: 'caries', label: 'Лечение кариеса' },
-  { value: 'extraction', label: 'Удаление зуба' },
+  ...Array.from(serviceSet.values()).map((s) => ({ value: s, label: s })),
 ])
 
+const doctorSet = Array.from(new Set(reviews.map((r) => r.doctor))).filter(Boolean)
 const doctors = ref([
   { value: 'all', label: 'Все врачи' },
-  { value: 'kalashnikov', label: 'Калашников Денис Анатольевич' },
-  { value: 'ivanov', label: 'Иванов Иван Иванович' },
+  ...doctorSet.map((d) => ({ value: d, label: d })),
 ])
 
 const showMore = ref(false)
-
 const selectedProduct = ref(products.value[0])
 const selectedDoctor = ref(doctors.value[0])
+
+const filteredReviews = computed(() => {
+  const selectedDoctorValue = selectedDoctor.value?.value
+  const selectedServiceValue = selectedProduct.value?.value
+
+  return reviews.filter((r) => {
+    const byDoctor =
+      !selectedDoctorValue || selectedDoctorValue === 'all' || r.doctor === selectedDoctorValue
+
+    const byService =
+      !selectedServiceValue ||
+      selectedServiceValue === 'all' ||
+      (r.services || []).some(
+        (s) => String(s).toLowerCase() === String(selectedServiceValue).toLowerCase(),
+      )
+
+    return byDoctor && byService
+  })
+})
+
+function platformLabel(p) {
+  if (!p) return ''
+  return String(p).toLowerCase() === 'yandex' ? 'Яндекс' : p
+}
 </script>
 
 <style scoped>
@@ -246,6 +144,7 @@ const selectedDoctor = ref(doctors.value[0])
   height: 50px;
   border-radius: 50%;
   margin-right: 18px;
+  color: #bdbdbd;
 }
 
 .name {
@@ -286,6 +185,7 @@ const selectedDoctor = ref(doctors.value[0])
   font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 22.5px */
+  white-space: pre-line;
 }
 
 .info {
