@@ -5,7 +5,7 @@
 
       <div class="faq-container">
         <div
-          v-for="(faq, idx) in faqs"
+          v-for="(faq, idx) in items"
           :key="idx"
           class="item"
           :class="{ open: faq.open }"
@@ -91,10 +91,24 @@ function handleSubmit() {
   }, 3000)
 }
 
-const faqs = ref(await useFaq())
+const props = defineProps({
+  faqs: {
+    type: Array,
+    default: () => [],
+  },
+})
+
+const items = ref(props.faqs.map((i) => ({ ...i })))
+
+watch(
+  () => props.faqs,
+  (val) => {
+    items.value = val.map((i) => ({ ...i }))
+  },
+)
 
 function toggle(index) {
-  faqs.value[index].open = !faqs.value[index].open
+  items.value[index].open = !items.value[index].open
 }
 </script>
 

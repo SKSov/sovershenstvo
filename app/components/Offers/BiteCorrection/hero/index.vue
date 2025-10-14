@@ -1,17 +1,10 @@
 <template>
-  <FAQFormDesktop v-if="!isMobile" :faqs="props.faqs" />
-  <FAQFormMobile v-else :faqs="props.faqs" />
+  <OffersDentalTreatmentHeroDesktop v-if="!isMobile" />
+  <OffersDentalTreatmentHeroMobile v-else />
 </template>
 
 <script setup>
 const isMobile = ref(false)
-
-const props = defineProps({
-  faqs: {
-    type: Array,
-    default: () => [],
-  },
-})
 
 onMounted(() => {
   const mq = window.matchMedia('(max-width: 991px)')

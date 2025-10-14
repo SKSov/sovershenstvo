@@ -10,13 +10,16 @@
       <CommentsSlider />
       <FeedbackForm />
       <LicensesSlider />
-      <FAQForm />
+      <FAQForm :faqs="faqs" />
     </main>
     <AppFooter />
   </div>
 </template>
 
 <script setup>
+import { useFaq } from '~/composables/useFaq'
+
+const faqs = await useFaq()
 const breadcrumbs = [
   { path: '/', name: 'Главная' },
   { path: '/about', name: 'О нас' },
