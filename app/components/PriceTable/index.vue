@@ -1,9 +1,29 @@
 <template>
-  <PriceTableDesktop v-if="!isMobile" />
-  <PriceTableMobile v-else />
+  <PriceTableDesktop
+    v-if="!isMobile"
+    :data="data"
+    :is-collapsed="isCollapsed"
+    :visible-count="visibleCount"
+  />
+  <PriceTableMobile v-else :data="data" :is-collapsed="isCollapsed" :visible-count="visibleCount" />
 </template>
 
 <script setup>
+defineProps({
+  data: {
+    type: Array,
+    required: false,
+    default: () => [],
+  },
+  isCollapsed: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+})
+
+const visibleCount = 3
+
 const isMobile = ref(false)
 
 onMounted(() => {

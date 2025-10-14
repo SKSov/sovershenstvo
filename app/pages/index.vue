@@ -9,7 +9,7 @@
       <MainUnique />
       <MainDetails />
       <MainWhy />
-      <PriceTable :data="pricingData" />
+      <PriceTable :data="pricingData" :is-collapsed="true" />
       <FeedbackForm />
       <DoctorsSlider />
       <CommentsSlider />

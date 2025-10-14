@@ -26,6 +26,17 @@ const { onClick } = defineProps({
   transition: background 0.3s;
 }
 
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 17px;
+    border-radius: 26px;
+    font-size: clamp(12px, 3.8vw, 16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
 .btn:hover {
   background: #0056cc;
 }

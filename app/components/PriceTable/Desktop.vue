@@ -17,7 +17,7 @@
           :class="['price-group', { 'price-group--single': section.children.length === 1 }]"
         >
           <div
-            v-for="(item, itemIndex) in section.children"
+            v-for="(item, itemIndex) in getVisibleItems(section.children)"
             :key="`row-${sectionIndex}-${itemIndex}`"
             class="price-row"
           >
@@ -32,6 +32,9 @@
 
       <div class="price-button">
         <button class="price-btn" @click="openFeedbackModal">Записаться на прием</button>
+        <UIButton variant="secondary" style="margin-left: 24px" @click="navigateTo('/pricing')"
+          >Прайс-лист</UIButton
+        >
       </div>
     </div>
   </section>
@@ -44,13 +47,28 @@ function openFeedbackModal() {
   open()
 }
 
-defineProps({
+const props = defineProps({
   data: {
     type: Array,
     required: false,
     default: () => [],
   },
+  isCollapsed: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  visibleCount: {
+    type: Number,
+    required: false,
+    default: 3,
+  },
 })
+
+function getVisibleItems(items) {
+  if (!props.isCollapsed) return items
+  return items.slice(0, props.visibleCount)
+}
 </script>
 
 <style scoped>
