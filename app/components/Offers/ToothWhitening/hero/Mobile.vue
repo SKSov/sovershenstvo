@@ -2,7 +2,7 @@
   <section class="therapy-hero-mobile">
     <div class="container">
       <div class="title">Профессиональная чистка и отбеливание</div>
-      <div class="subtitle">Цена от <span class="bold">2 000 ₽</span></div>
+      <div class="subtitle">Цена от <span class="bold">7 500 ₽</span></div>
 
       <div class="image-wrap">
         <img src="/images/page-therapy/page-tooth-decay/hero.png" alt="therapy" />

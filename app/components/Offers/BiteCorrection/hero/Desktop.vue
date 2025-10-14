@@ -4,7 +4,7 @@
       <div class="grid">
         <div class="left">
           <div class="title">Исправление прикуса зубов</div>
-          <div class="subtitle">по доступной цене: от <span class="bold">X ₽</span></div>
+          <div class="subtitle">по доступной цене: от <span class="bold">15 000 ₽</span></div>
           <div class="info">
             <div class="item">
               <TherapyHeroIconsSmiles />
