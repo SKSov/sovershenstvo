@@ -54,8 +54,8 @@
             <div class="row address">
               <AppFooterIconsLocation style="flex-shrink: 0" /><span
                 >г. Пенза<br />
-                <span v-if="selectedAddress === 1">ул. Терновского, 132</span>
-                <span v-if="selectedAddress === 2">ул. Глазунова, 1</span>
+                <span v-if="selectedAddress === 1">ул. Глазунова, 1</span>
+                <span v-if="selectedAddress === 2">ул. Терновского, 132</span>
                 <span v-if="selectedAddress === 3">ул. Терновского, 220</span>
               </span>
             </div>
