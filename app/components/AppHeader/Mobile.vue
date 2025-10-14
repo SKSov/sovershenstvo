@@ -106,8 +106,9 @@ onMounted(() => {
 <style scoped>
 .m-header {
   background: #fff;
-  position: relative;
-  z-index: 30;
+  position: sticky;
+  top: 0;
+  z-index: 110;
 }
 
 .m-header__bar {

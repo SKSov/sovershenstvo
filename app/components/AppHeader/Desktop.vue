@@ -1,63 +1,65 @@
 <template>
-  <header class="header">
-    <div class="header-main">
-      <div class="header-content">
-        <div class="header-separator"></div>
-        <div class="header-logo">
-          <NuxtLink to="/">
-            <img src="/images/header-logo.png" alt="Логотип" />
-          </NuxtLink>
-        </div>
+  <div class="sticky-header">
+    <header class="header">
+      <div class="header-main">
+        <div class="header-content">
+          <div class="header-separator"></div>
+          <div class="header-logo">
+            <NuxtLink to="/">
+              <img src="/images/header-logo.png" alt="Логотип" />
+            </NuxtLink>
+          </div>
 
-        <div class="header-info">
-          <div class="header-schedule">
-            <div class="info-label">Режим работы</div>
-            <div class="info-content">
-              <AppHeaderIconsTimer />
-              <span class="gray">Пн-Пт:</span> 9:00 - 20:00
-              <div class="separator"></div>
-              <span class="gray">Сб:</span> 9:00 - 19:00
+          <div class="header-info">
+            <div class="header-schedule">
+              <div class="info-label">Режим работы</div>
+              <div class="info-content">
+                <AppHeaderIconsTimer />
+                <span class="gray">Пн-Пт:</span> 9:00 - 20:00
+                <div class="separator"></div>
+                <span class="gray">Сб:</span> 9:00 - 19:00
+              </div>
+            </div>
+
+            <div class="header-phone">
+              <div class="info-label">Телефон</div>
+              <div class="info-content">
+                <AppHeaderIconsPhone />
+                <span class="gray">+7 (8412) </span>95-10-49
+                <div class="separator"></div>
+                <span class="gray">+7 (8412) </span>20 38 78
+              </div>
+            </div>
+
+            <div class="header-whatsapp">
+              <!-- <AppHeaderIconsWhatsapp />
+              <span>Написать в Whatsapp</span> -->
             </div>
           </div>
 
-          <div class="header-phone">
-            <div class="info-label">Телефон</div>
-            <div class="info-content">
-              <AppHeaderIconsPhone />
-              <span class="gray">+7 (8412) </span>95-10-49
-              <div class="separator"></div>
-              <span class="gray">+7 (8412) </span>20 38 78
-            </div>
-          </div>
-
-          <div class="header-whatsapp">
-            <!-- <AppHeaderIconsWhatsapp />
-            <span>Написать в Whatsapp</span> -->
-          </div>
+          <button class="header-call-btn" @click="openModal">Заказать звонок</button>
         </div>
-
-        <button class="header-call-btn" @click="openModal">Заказать звонок</button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <nav class="navigation">
-    <div class="container">
-      <div class="nav-menu">
-        <NuxtLink to="/about" class="nav-link">О нас</NuxtLink>
-        <div class="nav-separator"></div>
-        <NuxtLink to="/offers" class="nav-link">Услуги</NuxtLink>
-        <div class="nav-separator"></div>
-        <NuxtLink to="/pricing" class="nav-link">Стоимость услуг</NuxtLink>
-        <div class="nav-separator"></div>
-        <NuxtLink to="/doctors" class="nav-link">Специалисты</NuxtLink>
-        <div class="nav-separator"></div>
-        <NuxtLink to="/promotions" class="nav-link">Акции</NuxtLink>
-        <div class="nav-separator"></div>
-        <NuxtLink to="/reviews" class="nav-link">Отзывы</NuxtLink>
+    <nav class="navigation">
+      <div class="container">
+        <div class="nav-menu">
+          <NuxtLink to="/about" class="nav-link">О нас</NuxtLink>
+          <div class="nav-separator"></div>
+          <NuxtLink to="/offers" class="nav-link">Услуги</NuxtLink>
+          <div class="nav-separator"></div>
+          <NuxtLink to="/pricing" class="nav-link">Стоимость услуг</NuxtLink>
+          <div class="nav-separator"></div>
+          <NuxtLink to="/doctors" class="nav-link">Специалисты</NuxtLink>
+          <div class="nav-separator"></div>
+          <NuxtLink to="/promotions" class="nav-link">Акции</NuxtLink>
+          <div class="nav-separator"></div>
+          <NuxtLink to="/reviews" class="nav-link">Отзывы</NuxtLink>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script setup>
@@ -69,6 +71,13 @@ function openModal() {
 </script>
 
 <style scoped>
+/* Sticky container for header + navigation */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 /* Header */
 .header {
   background: #fff;
