@@ -1,6 +1,5 @@
 <template>
   <header class="m-header" :class="{ 'is-open': isOpen }">
-    <div class="m-header__top"></div>
     <div class="m-header__bar">
       <div class="m-header__burger" @click="toggle">
         <svg
@@ -109,11 +108,6 @@ onMounted(() => {
   background: #fff;
   position: relative;
   z-index: 30;
-}
-
-.m-header__top {
-  height: 4px;
-  background: #0079ff;
 }
 
 .m-header__bar {
