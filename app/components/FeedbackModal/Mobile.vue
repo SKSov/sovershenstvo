@@ -13,6 +13,16 @@
         @click.self="handleClose"
       >
         <div class="modal-content">
+          <button class="modal-close" @click="handleClose">
+            <svg class="modal-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
           <div class="form">
             <div class="title">Получите специальное предложение</div>
             <div class="subtitle">
@@ -111,7 +121,7 @@ function handleSubmit() {
 .title {
   color: #1e1e1e;
   font-family: Inter;
-  font-size: clamp(24px, 7.2vw, 30px);
+  font-size: 26px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -264,6 +274,27 @@ function handleSubmit() {
   min-height: 420px;
   position: relative;
   overflow: hidden;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #1e1e1e;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-close-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .form {
