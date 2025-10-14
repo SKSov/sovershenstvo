@@ -4,7 +4,7 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <OffersDentalTreatmentHero />
-      <PriceTable :data="priceTableData" />
+      <PriceTable :data="priceTableData" :is-collapsed="true" />
       <AboutMission />
       <FeedbackForm />
       <OffersDentalTreatmentTextBlock />
