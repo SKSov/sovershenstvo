@@ -1,9 +1,16 @@
 <template>
-  <MainOffersDesktop v-if="!isMobile" />
-  <MainOffersMobile v-else />
+  <MainOffersDesktop v-if="!isMobile" :is-promotions-page="isPromotionsPage" />
+  <MainOffersMobile v-else :is-promotions-page="isPromotionsPage" />
 </template>
 
 <script setup>
+defineProps({
+  isPromotionsPage: {
+    type: Boolean,
+    default: false,
+  },
+})
+
 const isMobile = ref(false)
 
 onMounted(() => {

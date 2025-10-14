@@ -4,7 +4,7 @@
     <main>
       <AppBreadcrumbs :path="breadcrumbs" />
       <PromotionsHero />
-      <MainOffers />
+      <MainOffers :is-promotions-page="true" />
       <MainUnique />
       <FeedbackForm />
     </main>

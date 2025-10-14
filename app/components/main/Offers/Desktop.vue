@@ -43,7 +43,10 @@
             </div>
             <div class="more-link"><span>Подробнее</span></div>
           </div>
-          <NuxtLink class="all-offers" to="/promotions">Смотреть <br />все акции</NuxtLink>
+          <NuxtLink v-if="!isPromotionsPage" class="all-offers" to="/promotions"
+            >Смотреть <br />все акции</NuxtLink
+          >
+          <div v-else class="all-offers" @click="openFeedbackModal">Уникальное предложение</div>
         </div>
       </div>
     </div>
@@ -51,6 +54,13 @@
 </template>
 
 <script setup>
+defineProps({
+  isPromotionsPage: {
+    type: Boolean,
+    default: false,
+  },
+})
+
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
@@ -238,7 +248,7 @@ function openFeedbackModal() {
   color: #fff;
   text-align: center;
   font-family: Inter;
-  font-size: 32px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

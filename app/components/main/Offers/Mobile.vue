@@ -48,9 +48,18 @@
             </article>
           </SwiperSlide>
           <SwiperSlide>
-            <article class="offer-card cta" @click="navigateTo('/promotions')">
+            <article
+              v-if="!isPromotionsPage"
+              class="offer-card cta"
+              @click="navigateTo('/promotions')"
+            >
               <div class="cta-body">
                 <div class="cta-text">Смотреть<br />все акции</div>
+              </div>
+            </article>
+            <article v-else class="offer-card cta" @click="openFeedbackModal">
+              <div class="cta-body">
+                <div class="cta-text">Уникальное предложение</div>
               </div>
             </article>
           </SwiperSlide>
@@ -71,6 +80,13 @@ import MainOffersArrow from './Arrow.vue'
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
+
+defineProps({
+  isPromotionsPage: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const cards = [
   {
