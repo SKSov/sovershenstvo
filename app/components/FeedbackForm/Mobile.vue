@@ -15,7 +15,8 @@
             <input type="checkbox" class="consent-input" />
             <span class="consent-box"></span>
             <span class="consent-text">
-              Я согласен с <a href="#">политикой конфиденциальности</a>
+              Я согласен с
+              <a href="/policy.pdf" target="_blank" rel="noopener">политикой конфиденциальности</a>
             </span>
           </label>
 
