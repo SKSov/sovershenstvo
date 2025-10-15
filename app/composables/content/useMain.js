@@ -6,6 +6,7 @@ export const useMain = async () => {
     hero: mainData?.value?.meta?.body?.hero,
     strengths: mainData?.value?.meta?.body?.strengths,
     services: mainData?.value?.meta?.body?.services,
+    offers: mainData?.value?.meta?.body?.offers,
   }
   return data
 }

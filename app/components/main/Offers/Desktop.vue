@@ -1,46 +1,40 @@
 <template>
   <section class="offers">
     <div class="container">
-      <h2 class="offers-title">
-        Специальные <br />
-        предложения
-      </h2>
+      <h2 class="offers-title" v-html="mainData?.offers?.title"></h2>
 
       <div class="offers-grid">
         <div class="card" @click="openFeedbackModal">
-          <NuxtImg quality="80" src="/images/offers/1.png" alt="Offer" loading="lazy" />
+          <NuxtImg quality="80" :src="mainData?.offers?.banner1?.img" alt="Offer" loading="lazy" />
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
-              <div class="title">Скидка 50%</div>
-              <div class="subtitle">на чистку зубов</div>
+              <div class="title" v-html="mainData?.offers?.banner1?.title"></div>
+              <div class="subtitle">{{ mainData?.offers?.banner1?.subtitle }}</div>
             </div>
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
         </div>
         <div class="card" @click="openFeedbackModal">
-          <NuxtImg quality="80" src="/images/offers/2.jpg" alt="Offer" loading="lazy" />
+          <NuxtImg quality="80" :src="mainData?.offers?.banner2?.img" alt="Offer" loading="lazy" />
           <div class="content">
             <div class="badge">Акция</div>
             <div class="text">
-              <div class="title">Скидка 50%</div>
-              <div class="subtitle">на компьютерную томографию</div>
+              <div class="title" v-html="mainData?.offers?.banner2?.title"></div>
+              <div class="subtitle">{{ mainData?.offers?.banner2?.subtitle }}</div>
             </div>
             <div class="more-link"><span>Подробнее</span> <MainOffersArrow /></div>
           </div>
         </div>
         <div class="card bottom" @click="openFeedbackModal">
           <div class="badge">Акция</div>
-          <div class="title">Бесплатный прием врача хирурга-имплантолога</div>
+          <div class="title" v-html="mainData?.offers?.banner3?.title"></div>
           <div class="more-link"><span>Подробнее</span></div>
         </div>
         <div class="with-button">
           <div class="card bottom" @click="openFeedbackModal">
             <div class="badge">Акция</div>
-            <div class="title">
-              Имплант зуба за <br />
-              45 000 рублей
-            </div>
+            <div class="title" v-html="mainData?.offers?.banner4?.title"></div>
             <div class="more-link"><span>Подробнее</span></div>
           </div>
           <NuxtLink v-if="!isPromotionsPage" class="all-offers" to="/promotions"
@@ -54,12 +48,16 @@
 </template>
 
 <script setup>
+import { useMain } from '@/composables/content/useMain'
+
 defineProps({
   isPromotionsPage: {
     type: Boolean,
     default: false,
   },
 })
+
+const mainData = await useMain()
 
 const { open } = useFeedbackModal()
 

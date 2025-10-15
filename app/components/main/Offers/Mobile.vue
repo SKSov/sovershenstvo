@@ -31,18 +31,54 @@
           :free-mode="{ enabled: true, momentum: true, sticky: true }"
           @swiper="onSwiper"
         >
-          <SwiperSlide v-for="(card, index) in cards" :key="index">
-            <article class="offer-card" :class="card.variant" @click="openFeedbackModal">
-              <img v-if="card.image" class="card-image" :src="card.image" alt="Offer" />
-              <div class="card-content" :class="{ 'on-image': !!card.image }">
-                <div class="badge" :class="{ outline: card.badgeOutline }">Акция</div>
+          <SwiperSlide>
+            <article class="offer-card image-card" @click="openFeedbackModal">
+              <img class="card-image" :src="mainData?.offers?.banner1?.img" alt="Offer" />
+              <div class="card-content on-image">
+                <div class="badge">Акция</div>
                 <div class="card-text">
-                  <div class="title" v-html="card.title"></div>
-                  <div v-if="card.subtitle" class="subtitle">{{ card.subtitle }}</div>
+                  <div class="title" v-html="mainData?.offers?.banner1?.title"></div>
+                  <div class="subtitle">{{ mainData?.offers?.banner1?.subtitle }}</div>
                 </div>
-                <div v-if="card.more" class="more-link">
+                <div class="more-link">
                   <span>Подробнее</span>
                   <MainOffersArrow />
+                </div>
+              </div>
+            </article>
+          </SwiperSlide>
+          <SwiperSlide>
+            <article class="offer-card image-card" @click="openFeedbackModal">
+              <img class="card-image" :src="mainData?.offers?.banner2?.img" alt="Offer" />
+              <div class="card-content on-image">
+                <div class="badge">Акция</div>
+                <div class="card-text">
+                  <div class="title" v-html="mainData?.offers?.banner2?.title"></div>
+                  <div class="subtitle">{{ mainData?.offers?.banner2?.subtitle }}</div>
+                </div>
+                <div class="more-link">
+                  <span>Подробнее</span>
+                  <MainOffersArrow />
+                </div>
+              </div>
+            </article>
+          </SwiperSlide>
+          <SwiperSlide>
+            <article class="offer-card gradient-card" @click="openFeedbackModal">
+              <div class="card-content">
+                <div class="badge outline">Акция</div>
+                <div class="card-text">
+                  <div class="title" v-html="mainData?.offers?.banner3?.title"></div>
+                </div>
+              </div>
+            </article>
+          </SwiperSlide>
+          <SwiperSlide>
+            <article class="offer-card gradient-card" @click="openFeedbackModal">
+              <div class="card-content">
+                <div class="badge outline">Акция</div>
+                <div class="card-text">
+                  <div class="title" v-html="mainData?.offers?.banner4?.title"></div>
                 </div>
               </div>
             </article>
@@ -76,6 +112,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import ArrowLeft from '@/components/CommentsSlider/Icons/arrowLeft.vue'
 import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
+import { useMain } from '@/composables/content/useMain'
 import MainOffersArrow from './Arrow.vue'
 
 const modules = [Keyboard, Mousewheel, FreeMode]
@@ -87,39 +124,7 @@ defineProps({
     default: false,
   },
 })
-
-const cards = [
-  {
-    image: '/images/offers/1.png',
-    title: 'Скидка 50%',
-    subtitle: 'на чистку зубов',
-    more: true,
-    variant: 'image-card',
-  },
-  {
-    image: '/images/offers/2.jpg',
-    title: 'Скидка 50%',
-    subtitle: 'на компьютерную томографию',
-    more: true,
-    variant: 'image-card',
-  },
-  {
-    image: null,
-    title: 'Бесплатный прием врача<br />хирурга-имплантолога',
-    subtitle: '',
-    more: false,
-    variant: 'gradient-card',
-    badgeOutline: true,
-  },
-  {
-    image: null,
-    title: 'Имплант зуба за <br />45 000 рублей',
-    subtitle: '',
-    more: false,
-    variant: 'gradient-card',
-    badgeOutline: true,
-  },
-]
+const mainData = await useMain()
 
 function onSwiper(instance) {
   swiperInstance = instance
