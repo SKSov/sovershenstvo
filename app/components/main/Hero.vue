@@ -8,7 +8,7 @@
           <button class="hero-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
         <div class="hero-image">
-          <img src="/images/heroBanner.png" alt="Идеальная улыбка" />
+          <NuxtImg quality="90" :src="mainData?.hero?.image" alt="Идеальная улыбка" />
         </div>
         <button class="hero-btn hero-btn--mobile" @click="openFeedbackModal">
           Записаться на прием
