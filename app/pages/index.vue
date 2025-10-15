@@ -9,7 +9,11 @@
       <MainUnique />
       <MainDetails />
       <MainWhy />
-      <PriceTable :data="pricingData" :is-collapsed="true" />
+      <PriceTable
+        v-if="mainData?.pricing && mainData?.pricing.length > 0"
+        :data="mainData?.pricing"
+        :is-collapsed="true"
+      />
       <FeedbackForm />
       <DoctorsSlider />
       <CommentsSlider />
@@ -20,7 +24,9 @@
 </template>
 
 <script setup>
-const pricingData = await usePriceTable()
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
 
 onMounted(async () => {
   const apiUrl = 'https://api.unyto.ru:8443/feedback'
