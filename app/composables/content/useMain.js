@@ -2,8 +2,11 @@ export const useMain = async () => {
   const { data: mainData } = await useAsyncData('main', () => {
     return queryCollection('main').first()
   })
+  const { data: pricingData } = await useAsyncData('pricing', () => {
+    return queryCollection('pricing').first()
+  })
   // Normalize pricing: object categories (category1..6) with itemXX -> arrays and drop empty ones
-  const pricingFromContent = mainData?.value?.meta?.body?.pricing || {}
+  const pricingFromContent = pricingData?.value?.meta?.body?.pricing || {}
 
   function normalizePricing(pricingObj) {
     const categories = []
