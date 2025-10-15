@@ -41,6 +41,5 @@ onMounted(async () => {
   })
 
   const result = await response.json()
-  console.log(result)
 })
 </script>

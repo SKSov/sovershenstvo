@@ -1,12 +1,14 @@
 export const useMain = async () => {
-  const { data: mainData } = await useAsyncData('main', () => {
-    return queryCollection('main').first()
-  })
-  const { data: pricingData } = await useAsyncData('pricing', () => {
-    return queryCollection('pricing').first()
+  const { data } = await useAsyncData('main+pricing', async () => {
+    const [main, pricing] = await Promise.all([
+      queryCollection('main').first(),
+      queryCollection('pricing').first(),
+    ])
+    return { main, pricing }
   })
   // Normalize pricing: object categories (category1..6) with itemXX -> arrays and drop empty ones
-  const pricingFromContent = pricingData?.value?.meta?.body?.pricing || {}
+  const mainBody = data?.value?.main?.meta?.body || {}
+  const pricingFromContent = data?.value?.pricing?.meta?.body?.pricing || {}
 
   function normalizePricing(pricingObj) {
     const categories = []
@@ -41,15 +43,15 @@ export const useMain = async () => {
     return categories
   }
 
-  const data = {
-    hero: mainData?.value?.meta?.body?.hero,
-    strengths: mainData?.value?.meta?.body?.strengths,
-    services: mainData?.value?.meta?.body?.services,
-    offers: mainData?.value?.meta?.body?.offers,
-    unique: mainData?.value?.meta?.body?.unique,
-    details: mainData?.value?.meta?.body?.details,
-    why: mainData?.value?.meta?.body?.why,
+  const result = {
+    hero: mainBody?.hero,
+    strengths: mainBody?.strengths,
+    services: mainBody?.services,
+    offers: mainBody?.offers,
+    unique: mainBody?.unique,
+    details: mainBody?.details,
+    why: mainBody?.why,
     pricing: normalizePricing(pricingFromContent),
   }
-  return data
+  return result
 }
