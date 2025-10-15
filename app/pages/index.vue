@@ -23,7 +23,8 @@
 const pricingData = await usePriceTable()
 
 onMounted(async () => {
-  const response = await fetch('api.unyto.ru:8443/feedback', {
+  const apiUrl = 'https://api.unyto.ru:8443/feedback'
+  const response = await fetch(apiUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
