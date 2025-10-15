@@ -1,12 +1,12 @@
 <template>
   <section class="services">
     <div class="container">
-      <h2 class="services-title services-title--desktop">Наши врачи помогут</h2>
-      <h2 class="services-title services-title--mobile">Наши врачи помогут</h2>
+      <h2 class="services-title services-title--desktop" v-html="mainData?.services?.title"></h2>
+      <h2 class="services-title services-title--mobile" v-html="mainData?.services?.title"></h2>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">Вылечить кариес <br />и его осложнения</h3>
+            <h3 class="service-name" v-html="mainData?.services?.card1"></h3>
             <NuxtLink class="service-link" to="/offers/dental-treatment"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -16,9 +16,7 @@
 
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">
-              Установить имплант нового <br />поколения быстро и без боли
-            </h3>
+            <h3 class="service-name" v-html="mainData?.services?.card2"></h3>
             <NuxtLink class="service-link" to="/offers/implantation"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -28,9 +26,7 @@
 
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">
-              Исправить прикус <br />и сделать художественную <br />реставрацию винирами
-            </h3>
+            <h3 class="service-name" v-html="mainData?.services?.card3"></h3>
             <NuxtLink class="service-link" to="/offers/bite-correction"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -40,10 +36,7 @@
 
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">
-              Восстановить зубы различными <br />
-              ортопедическими конструкциями
-            </h3>
+            <h3 class="service-name" v-html="mainData?.services?.card4"></h3>
             <NuxtLink class="service-link" to="/offers/tooth-restoration"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -53,7 +46,7 @@
 
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">Удалить зуб <br />любой сложности</h3>
+            <h3 class="service-name" v-html="mainData?.services?.card5"></h3>
             <NuxtLink class="service-link" to="/offers/tooth-removal"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -63,7 +56,7 @@
 
         <div class="service-card">
           <div class="service-content">
-            <h3 class="service-name">Провести профессиональную чистку и <br />отбеливание зубов</h3>
+            <h3 class="service-name" v-html="mainData?.services?.card6"></h3>
             <NuxtLink class="service-link" to="/offers/tooth-whitening"
               ><span>Подробнее</span> <MainServicesArrow
             /></NuxtLink>
@@ -79,7 +72,11 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
+</script>
 
 <style scoped>
 .services {
