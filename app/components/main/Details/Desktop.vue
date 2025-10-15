@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { navigateTo } from 'nuxt/app'
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
 </script>
 
 <template>
   <section class="details">
     <div class="container">
-      <h2 class="details-title">
-        Совершенство — <br />
-        ваша стоматология
-      </h2>
+      <h2 class="details-title" v-html="mainData?.details?.title"></h2>
 
       <div class="block">
         <img src="/images/details/1.png" alt="Details" />
@@ -16,21 +16,15 @@ import { navigateTo } from 'nuxt/app'
           <div class="list">
             <div class="item">
               <MainDetailsIconsTooth />
-              <p>Более 18 лет <br />мы дарим улыбки</p>
+              <p v-html="mainData?.details?.card1?.text"></p>
             </div>
             <div class="item">
               <MainDetailsIconsHappy />
-              <p>
-                250 000+ <br />
-                довольных пациентов
-              </p>
+              <p v-html="mainData?.details?.card2?.text"></p>
             </div>
             <div class="item">
               <MainDetailsIconsAchievement />
-              <p>
-                Признание <br />
-                на «Продокторов»
-              </p>
+              <p v-html="mainData?.details?.card3?.text"></p>
             </div>
           </div>
           <button class="details-btn" @click="navigateTo('/about')">Узнать подробнее</button>

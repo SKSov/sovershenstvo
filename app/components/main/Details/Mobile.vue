@@ -1,7 +1,7 @@
 <template>
   <section class="details-mobile">
     <div class="container">
-      <h2 class="details-title">Совершенство — ваша стоматология</h2>
+      <h2 class="details-title" v-html="mainData?.details?.title"></h2>
 
       <div class="hero-card">
         <img src="/images/details/1.png" alt="Совершенство — ваша стоматология" />
@@ -13,25 +13,19 @@
             <div class="icon">
               <MainDetailsIconsTooth />
             </div>
-            <p>Более 18 лет <br />мы дарим улыбки</p>
+            <p v-html="mainData?.details?.card1?.text"></p>
           </div>
           <div class="stats-item">
             <div class="icon">
               <MainDetailsIconsHappy />
             </div>
-            <p>
-              250 000+ <br />
-              довольных пациентов
-            </p>
+            <p v-html="mainData?.details?.card2?.text"></p>
           </div>
           <div class="stats-item">
             <div class="icon">
               <MainDetailsIconsAchievement />
             </div>
-            <p>
-              Признание <br />
-              на «Продокторов»
-            </p>
+            <p v-html="mainData?.details?.card3?.text"></p>
           </div>
         </div>
 
@@ -41,7 +35,11 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
+</script>
 
 <style scoped>
 .details-mobile {
