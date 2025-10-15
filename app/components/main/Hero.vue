@@ -3,14 +3,8 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-title">Идеальная улыбка <br />начинается здесь</h1>
-          <p class="hero-subtitle">
-            <span class="subtitle-bold">Стоматологическая клиника <br />«Совершенство»</span>
-            <span class="subtitle-regular">
-              — 18 лет <br />
-              профессионализма</span
-            >
-          </p>
+          <h1 class="hero-title" v-html="mainData?.hero?.title"></h1>
+          <p class="hero-subtitle" v-html="mainData?.hero?.text"></p>
           <button class="hero-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
         <div class="hero-image">
@@ -25,6 +19,9 @@
 </template>
 
 <script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
@@ -250,14 +247,11 @@ function openFeedbackModal() {
   -ms-hyphens: auto;
   word-break: normal;
   overflow-wrap: break-word;
-}
-
-.subtitle-bold {
-  font-weight: 600;
-}
-
-.subtitle-regular {
   font-weight: 400;
+}
+
+.hero-subtitle b {
+  font-weight: 600;
 }
 
 .hero-btn {
