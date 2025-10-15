@@ -1,39 +1,39 @@
 <template>
   <section class="strengths">
     <div class="container">
-      <h2 class="strengths-title strengths-title--desktop">
-        Наши <br />
-        сильные стороны
-      </h2>
-      <h2 class="strengths-title strengths-title--mobile">
-        Наши сильные <br />
-        стороны
-      </h2>
+      <h2 class="strengths-title strengths-title--desktop" v-html="mainData?.strengths?.title"></h2>
+      <h2 class="strengths-title strengths-title--mobile" v-html="mainData?.strengths?.title"></h2>
       <div class="strengths-cards">
         <div class="strength-card">
           <div class="card-icon">
             <MainStrengthsIconsPlan />
           </div>
-          <div class="card-text">Персональный план лечения</div>
+          <div class="card-text" v-html="mainData?.strengths?.cards?.[0]?.title"></div>
         </div>
 
         <div class="strength-card">
           <div class="card-icon">
             <MainStrengthsIconsInsurance />
           </div>
-          <div class="card-text">Несем ответственность за результат лечения</div>
+          <div class="card-text" v-html="mainData?.strengths?.cards?.[1]?.title"></div>
         </div>
 
         <div class="strength-card">
           <div class="card-icon">
             <MainStrengthsIconsPrice />
           </div>
-          <div class="card-text">Невысокая цена при отличном качестве</div>
+          <div class="card-text" v-html="mainData?.strengths?.cards?.[2]?.title"></div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
+</script>
 
 <style scoped>
 /* Strengths Section */
