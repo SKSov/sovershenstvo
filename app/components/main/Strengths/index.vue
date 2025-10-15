@@ -8,21 +8,21 @@
           <div class="card-icon">
             <MainStrengthsIconsPlan />
           </div>
-          <div class="card-text" v-html="mainData?.strengths?.cards?.[0]?.title"></div>
+          <div class="card-text" v-html="mainData?.strengths?.title1"></div>
         </div>
 
         <div class="strength-card">
           <div class="card-icon">
             <MainStrengthsIconsInsurance />
           </div>
-          <div class="card-text" v-html="mainData?.strengths?.cards?.[1]?.title"></div>
+          <div class="card-text" v-html="mainData?.strengths?.title2"></div>
         </div>
 
         <div class="strength-card">
           <div class="card-icon">
             <MainStrengthsIconsPrice />
           </div>
-          <div class="card-text" v-html="mainData?.strengths?.cards?.[2]?.title"></div>
+          <div class="card-text" v-html="mainData?.strengths?.title3"></div>
         </div>
       </div>
     </div>
