@@ -2,7 +2,7 @@
   <section class="why-mobile">
     <div class="container">
       <div class="why-header">
-        <h2 class="why-title">Почему выбирают нас</h2>
+        <h2 class="why-title" v-html="mainData?.why?.title"></h2>
         <div class="why-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
             <ArrowLeft class="icon" />
@@ -53,10 +53,13 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import ArrowLeft from '@/components/CommentsSlider/Icons/arrowLeft.vue'
 import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
+import { useMain } from '@/composables/content/useMain'
 import MainWhyIconsBadge from './Icons/badge.vue'
 import MainWhyIconsComfort from './Icons/comfort.vue'
 import MainWhyIconsPrice from './Icons/price.vue'
 import MainWhyIconsTechnologies from './Icons/technologies.vue'
+
+const mainData = await useMain()
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
@@ -64,23 +67,23 @@ let swiperInstance = null
 const items = [
   {
     icon: MainWhyIconsPrice,
-    title: 'Честные <br />цены',
-    text: 'Прозрачное ценообразование и никаких скрытых платежей',
+    title: mainData?.why?.card1?.title,
+    text: mainData?.why?.card1?.text,
   },
   {
     icon: MainWhyIconsTechnologies,
-    title: 'Передовые <br />технологии',
-    text: 'Точное лечение <br />с использованием дентального томографа PLANMECA <br />и 3D сканеров',
+    title: mainData?.why?.card2?.title,
+    text: mainData?.why?.card2?.text,
   },
   {
     icon: MainWhyIconsComfort,
-    title: 'Комфортная <br />атмосфера',
-    text: 'Приветливый персонал, отсутствие очередей <br />и возможность посмотреть фильм во время лечения',
+    title: mainData?.why?.card3?.title,
+    text: mainData?.why?.card3?.text,
   },
   {
     icon: MainWhyIconsBadge,
-    title: 'Высококвалифи-<br />цированные врачи',
-    text: 'Используем новейшие методики, участвуем в международных конференциях',
+    title: mainData?.why?.card4?.title,
+    text: mainData?.why?.card4?.text,
   },
 ]
 

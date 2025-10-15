@@ -1,33 +1,25 @@
 <template>
   <section class="unique">
     <div class="container">
-      <h2 class="unique-title">Уникальные решения клиники</h2>
-      <p class="unique-subtitle">
-        Разработаны эксклюзивно для вашей <br />
-        улыбки и здоровья <span class="bold">только в нашей клинике</span>
-      </p>
+      <h2 class="unique-title" v-html="mainData?.unique?.title"></h2>
+      <p class="unique-subtitle" v-html="mainData?.unique?.subtitle"></p>
       <div class="unique-cards">
         <div class="card">
           <img src="/images/unique/1.png" alt="Unique" />
           <div class="title">
-            Эстетическое <br />
-            выравнивание зубов
+            <span v-html="mainData?.unique?.card1?.title"></span>
           </div>
           <div class="subtitle">
-            Индивидуальные эстетичные <br />
-            ортодонтические конструкции
+            <span v-html="mainData?.unique?.card1?.subtitle"></span>
           </div>
         </div>
         <div class="card">
           <img src="/images/unique/2.png" alt="Unique" />
           <div class="title">
-            Безболезненная <br />
-            имплантация
+            <span v-html="mainData?.unique?.card2?.title"></span>
           </div>
           <div class="subtitle">
-            «Бескровный» (малоинвазивный) метод <br />
-            имплантации, преимущество которого <br />
-            безболезненная реабилитация в короткие сроки
+            <span v-html="mainData?.unique?.card2?.subtitle"></span>
           </div>
         </div>
       </div>
@@ -39,6 +31,10 @@
 </template>
 
 <script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
+
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {

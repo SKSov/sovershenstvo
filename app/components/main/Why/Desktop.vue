@@ -1,39 +1,44 @@
 <template>
   <section class="why">
     <div class="container">
-      <h2 class="why-title">Почему выбирают нас</h2>
+      <h2 class="why-title" v-html="mainData?.why?.title"></h2>
       <div class="grid">
         <div class="block">
           <MainWhyIconsPrice />
-          <div class="title">Честные <br />цены</div>
-          <div class="text">Прозрачное ценообразование и никаких скрытых платежей</div>
+          <div class="title" v-html="mainData?.why?.card1?.title"></div>
+          <div class="text" v-html="mainData?.why?.card1?.text"></div>
         </div>
         <div class="block">
           <MainWhyIconsTechnologies />
-          <div class="title">Передовые <br />технологии</div>
+          <div class="title" v-html="mainData?.why?.card2?.title"></div>
           <div class="text">
-            Точное лечение <br />с использованием дентального томографа PLANMECA <br />и 3D сканеров
+            <span v-html="mainData?.why?.card2?.text"></span>
           </div>
         </div>
         <div class="block">
           <MainWhyIconsComfort />
-          <div class="title">Комфортная <br />атмосфера</div>
+          <div class="title" v-html="mainData?.why?.card3?.title"></div>
           <div class="text">
-            Приветливый персонал, отсутствие очередей <br />и возможность посмотреть фильм во время
-            лечения
+            <span v-html="mainData?.why?.card3?.text"></span>
           </div>
         </div>
         <div class="block">
           <MainWhyIconsBadge />
-          <div class="title">Высококвалифи-<br />цированные врачи</div>
+          <div class="title" v-html="mainData?.why?.card4?.title"></div>
           <div class="text">
-            Используем новейшие методики, участвуем в международных конференциях
+            <span v-html="mainData?.why?.card4?.text"></span>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { useMain } from '@/composables/content/useMain'
+
+const mainData = await useMain()
+</script>
 
 <style scoped>
 .why {
