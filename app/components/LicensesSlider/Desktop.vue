@@ -60,7 +60,7 @@ import 'swiper/css/free-mode'
 import ArrowLeft from './Icons/arrowLeft.vue'
 import ArrowRight from './Icons/arrowRight.vue'
 
-const images = Array.from({ length: 10 }, (_, i) => `/images/licenses/${i + 1}.jpg`)
+const images = Array.from({ length: 7 }, (_, i) => `/images/licenses/${i + 1}.jpg`)
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
