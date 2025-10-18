@@ -22,5 +22,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'about.yml',
     }),
+    footer: defineCollection({
+      type: 'data',
+      source: 'footer.yml',
+    }),
   },
 })

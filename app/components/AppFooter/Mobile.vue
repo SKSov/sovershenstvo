@@ -3,17 +3,16 @@
     <div class="container">
       <footer class="wrap">
         <div class="head">
-          <div class="title">Контакты</div>
-          <div class="subtitle">Как нас найти</div>
+          <div class="title">{{ footer.title || 'Контакты' }}</div>
+          <div class="subtitle">{{ footer.subtitle || 'Как нас найти' }}</div>
           <div class="addresses">
-            <p :class="{ active: selectedAddress === 1 }" @click="selectedAddress = 1">
-              ул. Глазунова, 1
-            </p>
-            <p :class="{ active: selectedAddress === 2 }" @click="selectedAddress = 2">
-              ул. Терновского, 132
-            </p>
-            <p :class="{ active: selectedAddress === 3 }" @click="selectedAddress = 3">
-              ул. Терновского, 220
+            <p
+              v-for="(addr, i) in footer.addresses"
+              :key="i"
+              :class="{ active: selectedAddress === i + 1 }"
+              @click="selectedAddress = i + 1"
+            >
+              {{ addr.label }}
             </p>
           </div>
         </div>
@@ -23,40 +22,29 @@
         <div class="contacts">
           <div class="col">
             <div class="row">
-              <AppFooterIconsCall style="flex-shrink: 0" /><span>95-10-49 | 20 38 78</span>
+              <AppFooterIconsCall style="flex-shrink: 0" /><span>{{ summaryPhonesString }}</span>
             </div>
             <div class="row">
               <AppFooterIconsCall />
               <p
-                v-if="selectedAddress === 1"
+                v-if="currentPhones.length"
                 style="display: flex; flex-direction: column; gap: 5px"
               >
-                <span>+7 (8412) 95-10-49</span>
-                <span>+7 (8412) 30-12-45</span>
-              </p>
-              <span v-if="selectedAddress === 2">+7 (8412) 250 002</span>
-              <p
-                v-if="selectedAddress === 3"
-                style="display: flex; flex-direction: column; gap: 5px"
-              >
-                <span>+7 (8412) 20 38 78</span>
-                <span>+7 (8412) 30 46 15</span>
+                <span v-for="(p, idx) in currentPhones" :key="idx">{{ p }}</span>
               </p>
             </div>
             <div class="row">
               <AppFooterIconsMail style="flex-shrink: 0" /><a
                 style="color: inherit"
-                href="mailto:premium-stoma@mail.ru"
+                :href="`mailto:${footer.email}`"
                 target="_blank"
-                >premium-stoma@mail.ru</a
+                >{{ footer.email }}</a
               >
             </div>
             <div class="row address">
               <AppFooterIconsLocation style="flex-shrink: 0" /><span
-                >г. Пенза<br />
-                <span v-if="selectedAddress === 1">ул. Глазунова, 1</span>
-                <span v-if="selectedAddress === 2">ул. Терновского, 132</span>
-                <span v-if="selectedAddress === 3">ул. Терновского, 220</span>
+                >{{ footer.city }}<br />
+                <span>{{ currentAddressLabel }}</span>
               </span>
             </div>
           </div>
@@ -105,7 +93,17 @@
 </template>
 
 <script setup>
+import { useFooter } from '@/composables/content/useFooter'
+
 const selectedAddress = ref(1)
+const footer = await useFooter()
+const summaryPhonesString = computed(() => footer.summaryPhones || '')
+const currentIndex = computed(() => Math.max(0, (selectedAddress.value || 1) - 1))
+const currentAddress = computed(() => (footer.addresses || [])[currentIndex.value] || {})
+const currentPhones = computed(() =>
+  Array.isArray(currentAddress.value.phones) ? currentAddress.value.phones.filter(Boolean) : [],
+)
+const currentAddressLabel = computed(() => currentAddress.value.label || '')
 
 function openGoogleMap() {
   window.open('https://maps.google.com?saddr=Current+Location&daddr=53.222336,44.931484', '_blank')

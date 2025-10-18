@@ -1,0 +1,23 @@
+title: Контакты
+subtitle: Как нас найти
+city: г. Пенза
+email: premium-stoma@mail.ru
+summaryPhones: 95-10-49 | 20 38 78
+
+address1:
+  label: ул. Глазунова, 1
+  phone1: +7 (8412) 95-10-49
+  phone2: +7 (8412) 30-12-45
+  phone3: ''
+
+address2:
+  label: ул. Терновского, 132
+  phone1: +7 (8412) 250 002
+  phone2: ''
+  phone3: ''
+
+address3:
+  label: ул. Терновского, 220
+  phone1: +7 (8412) 20 38 78
+  phone2: +7 (8412) 30 46 15
+  phone3: ''
