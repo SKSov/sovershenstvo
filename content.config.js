@@ -18,5 +18,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'doctors.yml',
     }),
+    about: defineCollection({
+      type: 'data',
+      source: 'about.yml',
+    }),
   },
 })

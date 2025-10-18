@@ -2,47 +2,61 @@
   <section class="about-mobile">
     <div class="container">
       <div class="image-wrap">
-        <img src="/images/page-about/hero.png" alt="about" />
+        <img :src="about.hero.topImage" alt="about" />
       </div>
 
       <div class="card top">
-        <div class="title">Каждый зуб во рту <br />человека ценнее <br />бриллианта</div>
-        <p class="subtitle">— Мигель де Сервантес</p>
+        <div class="title"><span v-html="formatMultiline(about.hero.quote)" /></div>
+        <p class="subtitle">{{ about.hero.quoteAuthor }}</p>
         <AboutHeroIconsQuotes class="quotes" style="width: 100px" />
       </div>
 
       <div class="card bottom">
-        <div class="text">
-          Мы гордимся тем, что предлагаем не просто лечение, а комплексный подход к здоровью полости
-          рта, основанный на передовых технологиях, опыте и искренней заботе о каждом пациенте.
-        </div>
+        <div class="text"><span v-html="formatMultiline(about.hero.bottomText)" /></div>
         <div class="items">
           <div class="item" style="grid-column: span 2">
-            <div class="number">250 000+</div>
-            <p>довольных пациентов</p>
+            <div class="number">{{ about.hero.stats.patients }}</div>
+            <p>{{ about.hero.statsLabels.patients }}</p>
           </div>
           <div class="item">
-            <div class="number">18</div>
-            <p>лет на рынке</p>
+            <div class="number">{{ about.hero.stats.years }}</div>
+            <p>{{ about.hero.statsLabels.years }}</p>
           </div>
           <div class="item">
-            <div class="number">23</div>
-            <p>человека в команде</p>
+            <div class="number">{{ about.hero.stats.team }}</div>
+            <p>{{ about.hero.statsLabels.team }}</p>
           </div>
         </div>
-        <button class="about-btn" @click="openFeedbackModal">Записаться на прием</button>
+        <button class="about-btn" @click="openFeedbackModal">{{ about.hero.ctaText }}</button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { useAbout } from '@/composables/content/useAbout'
 import AboutHeroIconsQuotes from './Icons/quotes.vue'
 
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
   open()
+}
+
+const about = await useAbout()
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+function formatMultiline(text) {
+  const escaped = escapeHtml(text || '')
+  return escaped.replace(/\r?\n/g, '<br />').replace(/\\n/g, '<br />')
 }
 </script>
 
