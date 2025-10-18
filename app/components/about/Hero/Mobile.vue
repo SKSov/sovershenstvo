@@ -15,16 +15,16 @@
         <div class="text"><span v-html="formatMultiline(about.hero.bottomText)" /></div>
         <div class="items">
           <div class="item" style="grid-column: span 2">
-            <div class="number">{{ about.hero.stats.patients }}</div>
-            <p>{{ about.hero.statsLabels.patients }}</p>
+            <div class="number">{{ about.hero.stats.first }}</div>
+            <p>{{ about.hero.statsLabels.first }}</p>
           </div>
           <div class="item">
-            <div class="number">{{ about.hero.stats.years }}</div>
-            <p>{{ about.hero.statsLabels.years }}</p>
+            <div class="number">{{ about.hero.stats.second }}</div>
+            <p>{{ about.hero.statsLabels.second }}</p>
           </div>
           <div class="item">
-            <div class="number">{{ about.hero.stats.team }}</div>
-            <p>{{ about.hero.statsLabels.team }}</p>
+            <div class="number">{{ about.hero.stats.third }}</div>
+            <p>{{ about.hero.statsLabels.third }}</p>
           </div>
         </div>
         <button class="about-btn" @click="openFeedbackModal">{{ about.hero.ctaText }}</button>
