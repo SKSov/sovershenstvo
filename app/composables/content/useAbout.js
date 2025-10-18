@@ -9,21 +9,21 @@ export const useAbout = async () => {
 
   const result = {
     hero: {
-      quote: (hero?.quote || '').trim(),
-      quoteAuthor: (hero?.quoteAuthor || '').trim(),
-      topImage: (hero?.topImage || '/images/page-about/hero.png').trim(),
-      bottomText: (hero?.bottomText || '').trim(),
+      quote: hero?.quote,
+      quoteAuthor: hero?.quoteAuthor,
+      topImage: hero?.topImage,
+      bottomText: hero?.bottomText,
       stats: {
-        first: (hero?.stats?.first || '').trim(),
-        second: (hero?.stats?.second || '').trim(),
-        third: (hero?.stats?.third || '').trim(),
+        first: hero?.stats?.first,
+        second: hero?.stats?.second,
+        third: hero?.stats?.third,
       },
       statsLabels: {
-        first: (hero?.statsLabels?.first || '').trim(),
-        second: (hero?.statsLabels?.second || '').trim(),
-        third: (hero?.statsLabels?.third || '').trim(),
+        first: hero?.statsLabels?.first,
+        second: hero?.statsLabels?.second,
+        third: hero?.statsLabels?.third,
       },
-      ctaText: (hero?.ctaText || 'Записаться на прием').trim(),
+      ctaText: hero?.ctaText,
     },
   }
 
