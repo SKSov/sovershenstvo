@@ -2,7 +2,7 @@
   <section class="doctors-mobile">
     <div class="container">
       <div class="header">
-        <h2 class="title">Наша команда</h2>
+        <h2 class="title">{{ doctorsData.title || 'Наша команда' }}</h2>
         <div class="nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
             <ArrowLeft class="icon" />
@@ -32,7 +32,7 @@
           :free-mode="{ enabled: true, momentum: true, sticky: true }"
           @swiper="onSwiper"
         >
-          <SwiperSlide v-for="(doctor, index) in doctors" :key="index">
+          <SwiperSlide v-for="(doctor, index) in activeDoctors" :key="index">
             <article class="card">
               <div class="text">
                 <div class="name">{{ doctor.name }}</div>
@@ -80,48 +80,13 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import ArrowLeft from '@/components/CommentsSlider/Icons/arrowLeft.vue'
 import ArrowRight from '@/components/CommentsSlider/Icons/arrowRight.vue'
+import { useDoctors } from '@/composables/content/useDoctors'
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 let swiperInstance = null
 
-// Reuse the same data shape as Desktop slider. You can import from a store later.
-const doctors = [
-  {
-    name: 'Калашников Денис Анатольевич',
-    role: 'хирург-имплантолог и ортопед, ведущий специалист сети клиник «Совершенство». Стаж работы 22 года.',
-    photo: `/images/doctors-slider/doctors/1.jpg`,
-  },
-  {
-    name: 'Светлана Анатольевна Зубкова',
-    role: 'Врач стоматолог-терапевт, кандидат медицинских наук',
-    photo: `/images/doctors-slider/doctors/2.jpg`,
-  },
-  {
-    name: 'Светлана Владимировна Фокина',
-    role: 'Врач-стоматолог-терапевт',
-    photo: `/images/doctors-slider/doctors/3.jpg`,
-  },
-  {
-    name: 'Марьям Гелаевна Бараташвили',
-    role: 'Врач стоматолог-терапевт',
-    photo: `/images/doctors-slider/doctors/4.jpg`,
-  },
-  {
-    name: 'Елена Андреевна Белякова',
-    role: 'Врач стоматолог-ортопед',
-    photo: `/images/doctors-slider/doctors/5.jpg`,
-  },
-  {
-    name: 'Надежда Владимировна Поташ',
-    role: 'Врач-стоматолог',
-    photo: `/images/doctors-slider/doctors/6.jpg`,
-  },
-  {
-    name: 'Сергей Иванович Акифьев',
-    role: 'Врач стоматолог-ортопед',
-    photo: `/images/doctors-slider/doctors/7.jpg`,
-  },
-]
+const doctorsData = await useDoctors()
+const activeDoctors = doctorsData?.slider?.doctors || []
 
 function onSwiper(instance) {
   swiperInstance = instance
@@ -166,7 +131,10 @@ function experienceHtml(doctor) {
 }
 
 function safeLines(text) {
-  return escapeHtml(String(text)).replace(/\n/g, '<br />')
+  const escaped = escapeHtml(String(text))
+  return escaped
+    .replace(/\r?\n/g, '<br />') // actual newlines
+    .replace(/\\n/g, '<br />') // literal "\n" sequences
 }
 
 function escapeHtml(str) {

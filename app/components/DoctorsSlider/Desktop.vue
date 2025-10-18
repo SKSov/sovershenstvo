@@ -2,7 +2,7 @@
   <section class="doctors">
     <div class="container">
       <div class="doctors-header">
-        <h2 class="doctors-title">Наши врачи</h2>
+        <h2 class="doctors-title">{{ doctorsData.title || 'Наши врачи' }}</h2>
         <div class="doctors-nav">
           <button class="nav-btn" aria-label="Предыдущий" @click="scrollPrev">
             <DoctorsSliderIconsArrowLeft style="width: 41px; height: 41px" class="icon" />
@@ -40,7 +40,7 @@
             @resize="onResize"
             @breakpoint="onBreakpoint"
           >
-            <SwiperSlide v-for="(doctor, index) in doctors" :key="index">
+            <SwiperSlide v-for="(doctor, index) in activeDoctors" :key="index">
               <article class="card">
                 <div class="photo">
                   <NuxtImg
@@ -95,6 +95,7 @@ import { FreeMode, Keyboard, Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/free-mode'
+import { useDoctors } from '@/composables/content/useDoctors'
 
 defineProps({
   isDoctorsPage: {
@@ -111,7 +112,10 @@ function openFeedbackModal() {
 
 const modules = [Keyboard, Mousewheel, FreeMode]
 
-const doctors = [
+const doctorsData = await useDoctors()
+const activeDoctors = doctorsData?.slider?.doctors || []
+
+const _doctors = [
   {
     name: 'Калашников Денис Анатольевич',
     photo: `/images/doctors-slider/doctors/1.jpg`,
@@ -272,7 +276,10 @@ function experienceHtml(doctor) {
 }
 
 function safeLines(text) {
-  return escapeHtml(String(text)).replace(/\n/g, '<br />')
+  const escaped = escapeHtml(String(text))
+  return escaped
+    .replace(/\r?\n/g, '<br />') // actual newlines
+    .replace(/\\n/g, '<br />') // literal "\n" sequences
 }
 
 function escapeHtml(str) {
