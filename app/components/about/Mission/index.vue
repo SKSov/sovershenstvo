@@ -2,12 +2,10 @@
   <section class="strengths">
     <div class="container">
       <h2 class="strengths-title">
-        Забота о вашей улыбке – <br />
-        наша миссия
+        <span v-html="formatMultiline(about.mission.title)" />
       </h2>
       <p class="strengths-subtitle">
-        Мы не просто врачи, а надежные партнеры, <br />
-        которым вы можете доверять, потому что:
+        <span v-html="formatMultiline(about.mission.subtitle)" />
       </p>
       <div class="strengths-cards">
         <div class="strength-card">
@@ -16,12 +14,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Несем ответственность <br />
-              за результат лечения
+              <span v-html="formatMultiline(about.mission.blocks?.block1?.title)" />
             </p>
             <div class="card-text">
-              Стремимся не просто устранить проблему, а обеспечить вам здоровую и красивую улыбку на
-              долгие годы
+              <span v-html="formatMultiline(about.mission.blocks?.block1?.text)" />
             </div>
           </div>
         </div>
@@ -31,11 +27,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Всегда ставим ваши <br />
-              интересы на первое место
+              <span v-html="formatMultiline(about.mission.blocks?.block2?.title)" />
             </p>
             <div class="card-text">
-              и не навязываем ненужные процедуры Прозрачность и честность - основа наших отношений
+              <span v-html="formatMultiline(about.mission.blocks?.block2?.text)" />
             </div>
           </div>
         </div>
@@ -45,11 +40,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Инвестируем в самое <br />
-              современное оборудование,
+              <span v-html="formatMultiline(about.mission.blocks?.block3?.title)" />
             </p>
             <div class="card-text">
-              чтобы сделать диагностику точной, лечение эффективным и комфортным.
+              <span v-html="formatMultiline(about.mission.blocks?.block3?.text)" />
             </div>
           </div>
         </div>
@@ -59,12 +53,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Разрабатываем <br />
-              индивидуальный план лечения,
+              <span v-html="formatMultiline(about.mission.blocks?.block4?.title)" />
             </p>
             <div class="card-text">
-              так как каждый пациент для нас - уникальная личность со своими потребностями и
-              пожеланиями
+              <span v-html="formatMultiline(about.mission.blocks?.block4?.text)" />
             </div>
           </div>
         </div>
@@ -74,11 +66,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Внедряем в практику самые <br />
-              современные методики лечения,
+              <span v-html="formatMultiline(about.mission.blocks?.block5?.title)" />
             </p>
             <div class="card-text">
-              постоянно повышаем свою квалификацию, участвуем в международных конференциях
+              <span v-html="formatMultiline(about.mission.blocks?.block5?.text)" />
             </div>
           </div>
         </div>
@@ -88,12 +79,10 @@
           </div>
           <div class="content">
             <p class="card-title">
-              Мы работаем <br />
-              как единая команда,
+              <span v-html="formatMultiline(about.mission.blocks?.block6?.title)" />
             </p>
             <div class="card-text">
-              поэтому всегда готовы ответить на ваши вопросы, объяснить все этапы лечения и
-              поддержать вас на каждом шагу
+              <span v-html="formatMultiline(about.mission.blocks?.block6?.text)" />
             </div>
           </div>
         </div>
@@ -101,6 +90,26 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { useAbout } from '@/composables/content/useAbout'
+
+const about = await useAbout()
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+function formatMultiline(text) {
+  const escaped = escapeHtml(text || '')
+  return escaped.replace(/\r?\n/g, '<br />').replace(/\\n/g, '<br />')
+}
+</script>
 
 <style scoped>
 /* Strengths Section */

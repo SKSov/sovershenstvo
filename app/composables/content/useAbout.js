@@ -25,6 +25,7 @@ export const useAbout = async () => {
       },
       ctaText: hero?.ctaText,
     },
+    mission: body?.mission || {},
   }
 
   return result
