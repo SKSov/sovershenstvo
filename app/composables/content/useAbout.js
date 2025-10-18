@@ -15,8 +15,8 @@ export const useAbout = async () => {
       bottomText: (hero?.bottomText || '').trim(),
       stats: {
         patients: (hero?.stats?.patients || '').trim(),
-        years: (hero?.stats?.years || '').trim(),
-        team: (hero?.stats?.team || '').trim(),
+        years: (hero?.stats?.years_value || '').trim(),
+        team: (hero?.stats?.team_value || '').trim(),
       },
       statsLabels: {
         patients: (hero?.statsLabels?.patients || '').trim(),
