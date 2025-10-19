@@ -9,7 +9,7 @@
               <div class="topic">{{ item.topic }}</div>
               <p>{{ item.text }}</p>
             </div>
-            <component :is="icons[item.icon]" class="icon" />
+            <component :is="icons[index]" class="icon" />
           </div>
           <div class="bottom">
             <p>{{ item.price }}</p>
@@ -28,14 +28,15 @@ import TherapyOffersIconsFourth from '@/components/therapy/offers/Icons/fourth.v
 import TherapyOffersIconsSecond from '@/components/therapy/offers/Icons/second.vue'
 import TherapyOffersIconsSixth from '@/components/therapy/offers/Icons/sixth.vue'
 import TherapyOffersIconsThird from '@/components/therapy/offers/Icons/third.vue'
+import { useOffers } from '@/composables/content/useOffers'
 
 const icons = {
-  TherapyOffersIconsFirst,
-  TherapyOffersIconsSecond,
-  TherapyOffersIconsThird,
-  TherapyOffersIconsFourth,
-  TherapyOffersIconsFifth,
-  TherapyOffersIconsSixth,
+  0: TherapyOffersIconsFirst,
+  1: TherapyOffersIconsThird,
+  2: TherapyOffersIconsFourth,
+  3: TherapyOffersIconsFifth,
+  4: TherapyOffersIconsSixth,
+  5: TherapyOffersIconsSecond,
 }
 
 const items = await useOffers()

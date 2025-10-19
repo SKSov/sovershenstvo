@@ -34,5 +34,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'reviews.yml',
     }),
+    offers: defineCollection({
+      type: 'data',
+      source: 'offers.yml',
+    }),
   },
 })
