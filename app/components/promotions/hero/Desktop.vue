@@ -3,35 +3,27 @@
     <div class="container">
       <div class="grid">
         <div class="left">
-          <div class="title">
-            Скидка 50% <br />
-            на чистку зубов
-          </div>
-          <div class="subtitle">Осмотр и профессиональная чистка зубов</div>
+          <div class="title" v-html="formatMultiline(promo.hero.title || '')"></div>
+
+          <div class="subtitle">{{ promo.hero.subtitle }}</div>
           <div class="info">
             <div class="item">
               <TherapyHeroIconsSmiles />
-              <p>Более 18 лет <br />мы дарим улыбки</p>
+              <p v-html="formatMultiline(promo.hero.items[0] || '')" />
             </div>
             <div class="item">
               <TherapyHeroIconsClients />
-              <p>
-                250 000+ <br />
-                довольных пациентов
-              </p>
+              <p v-html="formatMultiline(promo.hero.items[1] || '')" />
             </div>
             <div class="item">
               <TherapyHeroIconsAchivement />
-              <p>
-                Признание <br />
-                на «Продокторов»
-              </p>
+              <p v-html="formatMultiline(promo.hero.items[2] || '')" />
             </div>
           </div>
           <button class="therapy-btn" @click="openFeedbackModal">Записаться на прием</button>
         </div>
         <div class="img">
-          <img src="/images/page-promotions/hero.png" alt="promotions" />
+          <NuxtImg :src="promo.hero.img" alt="promotions" quality="80" />
         </div>
       </div>
     </div>
@@ -39,10 +31,28 @@
 </template>
 
 <script setup>
+import { usePromotions } from '@/composables/content/usePromotions'
+
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
   open()
+}
+
+const promo = await usePromotions()
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+function formatMultiline(text) {
+  const escaped = escapeHtml(text || '')
+  return escaped.replace(/\r?\n/g, '<br />').replace(/\\n/g, '<br />')
 }
 </script>
 

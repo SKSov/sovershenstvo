@@ -26,5 +26,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'footer.yml',
     }),
+    promotions: defineCollection({
+      type: 'data',
+      source: 'promotions.yml',
+    }),
   },
 })
