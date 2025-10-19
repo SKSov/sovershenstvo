@@ -1,7 +1,7 @@
 <template>
   <section class="faq-form-mobile">
     <div class="container">
-      <h2 class="faq-form-title" v-html="data.title"></h2>
+      <h2 class="faq-form-title" v-html="resolvedTitle"></h2>
 
       <div class="faq-container">
         <div
@@ -93,8 +93,27 @@ function handleSubmit() {
   }, 3000)
 }
 
-const data = await useFaq()
-const items = ref(data.items.map((i) => ({ ...i })))
+const props = defineProps({
+  faqs: {
+    type: Array,
+    default: () => [],
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+})
+
+const faqData = await useFaq()
+const resolvedTitle = computed(() => props.title || faqData.title)
+const sourceItems = computed(() => (props.faqs && props.faqs.length ? props.faqs : faqData.items))
+const items = ref(
+  sourceItems.value.map((i) => ({
+    question: i.question,
+    answer: i.answer,
+    open: Boolean(i.open),
+  })),
+)
 
 function toggle(index) {
   items.value[index].open = !items.value[index].open
