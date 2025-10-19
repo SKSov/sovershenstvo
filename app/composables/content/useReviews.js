@@ -28,5 +28,8 @@ export const useReviews = async () => {
     text: r?.text || '',
   }))
 
-  return reviews
+  // Exclude empty reviews: missing author OR missing text
+  return reviews.filter(
+    (rev) => String(rev.author).trim().length > 0 && String(rev.text).trim().length > 0,
+  )
 }
