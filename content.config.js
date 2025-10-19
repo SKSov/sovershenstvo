@@ -38,5 +38,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'offers.yml',
     }),
+    faq: defineCollection({
+      type: 'data',
+      source: 'faq.yml',
+    }),
   },
 })

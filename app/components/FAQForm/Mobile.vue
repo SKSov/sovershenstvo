@@ -1,7 +1,7 @@
 <template>
   <section class="faq-form-mobile">
     <div class="container">
-      <h2 class="faq-form-title" v-html="title"></h2>
+      <h2 class="faq-form-title" v-html="data.title"></h2>
 
       <div class="faq-container">
         <div
@@ -82,6 +82,8 @@
 </template>
 
 <script setup>
+import { useFaq } from '@/composables/content/useFaq'
+
 const showSuccessNotification = ref(false)
 
 function handleSubmit() {
@@ -91,25 +93,8 @@ function handleSubmit() {
   }, 3000)
 }
 
-const props = defineProps({
-  faqs: {
-    type: Array,
-    default: () => [],
-  },
-  title: {
-    type: String,
-    default: 'Часто задаваемые <br />вопросы о лечении зубов',
-  },
-})
-
-const items = ref(props.faqs.map((i) => ({ ...i })))
-
-watch(
-  () => props.faqs,
-  (val) => {
-    items.value = val.map((i) => ({ ...i }))
-  },
-)
+const data = await useFaq()
+const items = ref(data.items.map((i) => ({ ...i })))
 
 function toggle(index) {
   items.value[index].open = !items.value[index].open
