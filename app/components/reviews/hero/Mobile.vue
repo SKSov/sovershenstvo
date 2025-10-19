@@ -1,31 +1,25 @@
 <template>
   <section class="reviews-hero-mobile">
     <div class="container">
-      <div class="title">
-        Ваше мнение – <br />
-        наш ориентир
-      </div>
-      <div class="subtitle">
-        Расскажите, что вы думаете <br />
-        о нас. Мы ценим вашу честность!
-      </div>
+      <div class="title" v-html="formatMultiline(reviews.hero.title || '')"></div>
+      <div class="subtitle" v-html="formatMultiline(reviews.hero.subtitle || '')"></div>
 
       <div class="image-wrap">
-        <img src="/images/page-promotions/hero.png" alt="reviews" />
+        <NuxtImg :src="reviews.hero.img" alt="reviews" quality="80" />
       </div>
 
       <div class="info">
         <div class="item">
           <TherapyHeroIconsSmiles />
-          <p>Более 18 лет <br />мы дарим улыбки</p>
+          <p v-html="formatMultiline(reviews.hero.items[0] || '')" />
         </div>
         <div class="item">
           <TherapyHeroIconsClients />
-          <p>250 000+ <br />довольных пациентов</p>
+          <p v-html="formatMultiline(reviews.hero.items[1] || '')" />
         </div>
         <div class="item">
           <TherapyHeroIconsAchivement />
-          <p>Признание <br />на «Продокторов»</p>
+          <p v-html="formatMultiline(reviews.hero.items[2] || '')" />
         </div>
       </div>
 
@@ -40,6 +34,8 @@
 </template>
 
 <script setup>
+import { useReviewsContent } from '@/composables/content/useReviewsContent'
+
 const { open } = useFeedbackModal()
 
 function openFeedbackModal() {
@@ -48,6 +44,22 @@ function openFeedbackModal() {
 
 function leaveReview() {
   window.open('https://yandex.ru/profile/1050283619?lang=ru', '_blank')
+}
+
+const reviews = await useReviewsContent()
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+function formatMultiline(text) {
+  const escaped = escapeHtml(text || '')
+  return escaped.replace(/\r?\n/g, '<br />').replace(/\\n/g, '<br />')
 }
 </script>
 

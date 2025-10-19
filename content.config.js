@@ -30,5 +30,9 @@ export default defineContentConfig({
       type: 'data',
       source: 'promotions.yml',
     }),
+    reviews: defineCollection({
+      type: 'data',
+      source: 'reviews.yml',
+    }),
   },
 })
