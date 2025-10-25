@@ -38,6 +38,7 @@ jobs:
             rm -rf .output
             tar -xzf /tmp/build.tar.gz -C ${{ secrets.SERVER_PATH }}
             rm /tmp/build.tar.gz
+            npm ci --omit=dev
             pm2 stop nuxt-app || true
             pm2 start .output/server/index.mjs --name nuxt-app
             pm2 save
