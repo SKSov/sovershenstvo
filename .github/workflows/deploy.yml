@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy to server
         run: |
-          scp -i ~/.ssh/id_rsa build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/tmp/build.tar.gz
+          scp -i ~/.ssh/id_rsa dist/app.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/tmp/app.tar.gz
           ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             set -e
             echo "Deploying application to ${{ secrets.SERVER_PATH }}"
