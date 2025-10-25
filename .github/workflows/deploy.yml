@@ -13,13 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Archive build
+      - name: Archive source code
         run: |
+          mkdir -p dist
           tar --exclude=node_modules \
-              --exclude=.git \
-              --exclude=.output \
-              --exclude=app.tar.gz \
-              -czf app.tar.gz .
+            --exclude=.git \
+            --exclude=.output \
+            -czf dist/app.tar.gz .
 
       - name: Setup SSH
         run: |
