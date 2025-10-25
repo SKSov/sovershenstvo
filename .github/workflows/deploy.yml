@@ -13,14 +13,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Nuxt app
-        run: npm run build
-
       - name: Archive build
-        run: tar -czf build.tar.gz .output
+        run: tar -czf app.tar.gz --exclude=node_modules --exclude=.git --exclude=.output .
 
       - name: Setup SSH
         run: |
@@ -33,12 +27,15 @@ jobs:
         run: |
           scp -i ~/.ssh/id_rsa build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/tmp/build.tar.gz
           ssh -i ~/.ssh/id_rsa ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+            set -e
+            echo "Deploying application to ${{ secrets.SERVER_PATH }}"
             mkdir -p ${{ secrets.SERVER_PATH }}
             cd ${{ secrets.SERVER_PATH }}
-            rm -rf .output
-            tar -xzf /tmp/build.tar.gz -C ${{ secrets.SERVER_PATH }}
-            rm /tmp/build.tar.gz
-            npm ci --omit=dev
+            rm -rf *
+            tar -xzf /tmp/app.tar.gz -C ${{ secrets.SERVER_PATH }}
+            rm /tmp/app.tar.gz
+            npm ci
+            npm run build
             pm2 stop nuxt-app || true
             pm2 start .output/server/index.mjs --name nuxt-app
             pm2 save
